@@ -7,6 +7,12 @@ This documentation serves as a comprehensive guide to **SATIM-eSAGE**, a  linked
 
 Its purpose is to enhance transparency and accessibility to the model, widely utilized for policymaking and critical analysis. By doing so, it seeks to contribute more broadly to the advancement and utilization of energy systems models in developing countries.
 
+```{tableofcontents}
+```
+:::{note}
+Here is a note! Cool!
+:::
+
  ## 1.2 Motivation
 
 The motivation behind the SATIM-eSAGE linked modeling framework lies in its ability to provide comprehensive and consistent results, thereby enhancing the analysis of energy and climate policies in South Africa. By combining SATIM and eSAGE, the framework enables a more nuanced examination of policies, considering their socioeconomic impacts. It addresses the need for a sophisticated tool to explore and assess different policy scenarios, shedding light on the trade-offs between mitigation and development objectives in the South African context.

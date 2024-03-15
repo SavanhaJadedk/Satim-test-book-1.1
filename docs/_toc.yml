@@ -5,7 +5,6 @@ format: jb-book
 root: intro
 chapters:
 - file: 00Abreviations
-- file: 01Introduction
 - file: 02SATIM Model Structure
 - file: 03eSAGE Model Structure
 - file: 04Model Linkage
