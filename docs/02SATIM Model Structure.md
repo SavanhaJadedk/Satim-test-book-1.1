@@ -99,5 +99,5 @@ The useful energy (UE) demand, which pertains to the demand for energy services,
 
 
 
-Information on Data Inputs is avaliable [here](/docs/source/05Data%20Inputs.md).
+Information on Data Inputs is avaliable [here](/docs/source/05Data%20Inputs.ipynb).
 
