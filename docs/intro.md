@@ -6,8 +6,6 @@ This documentation serves as a comprehensive guide to **SATIM-eSAGE**, a  linked
 
 Its purpose is to enhance transparency and accessibility to the model, widely utilized for policymaking and critical analysis. By doing so, it seeks to contribute more broadly to the advancement and utilization of energy systems models in developing countries.
 
-```{tableofcontents}
-```
 :::{note}
 Here is a note! Cool!
 :::
@@ -32,7 +30,7 @@ The linkages from SATIM to eSAGE involve alternate runs of the models, facilitat
 
 
 **For further info, check out the Model Structure of [SATIM](/docs/source/02SATIM%20Model%20Structure.md), [eSAGE](/docs/source/03eSAGE%20Model%20Structure.md), or the [Model Linkage](/docs/source/04Model%20Linkage.md).**
-**Read information on Data collection in [Data Inputs](/docs/source/05Data%20Inputs.md).**
+**Read information on Data collection in [Data Inputs](/docs/source/05Data%20Inputs.ipynb).**
 
 
 
