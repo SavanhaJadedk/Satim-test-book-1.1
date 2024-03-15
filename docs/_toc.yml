@@ -4,7 +4,6 @@
 format: jb-book
 root: intro
 chapters:
-<<<<<<< HEAD
 - file: 00Abreviations
 - file: 01Introduction
 - file: 02SATIM Model Structure
@@ -19,11 +18,4 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
-=======
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: Copy_of_05Data_Inputs
-- file: Annex 1 Techs
-- file: Annex 2 Fuels
->>>>>>> f00dabbb0569ebc6f6b45ba9855617b085da2880
+
