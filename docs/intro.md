@@ -10,8 +10,6 @@ Its purpose is to enhance transparency and accessibility to the model, widely ut
 Here is a note! Cool!
 :::
 
-```{tableofcontents}
-```
 
  ### 1.2 Motivation
 
