@@ -1,5 +1,8 @@
 # Welcome to the read-the-docs for the **SATIM-eSAGE** linked modelling framework.
 
+```{contents}
+```
+
 ## 1. Introduction
  ### 1.1 Project Overview
 This documentation serves as a comprehensive guide to **SATIM-eSAGE**, a  linked modeling framework combines the SATIM (South African TIMES Model) and eSAGE (Energy South African General Equilibrium Model) to analyze the socioeconomic impacts of energy and climate policies in South Africa.The linked framework involves an iterative process of exchanging information between SATIM and eSAGE to produce comprehensive and consistent results.
