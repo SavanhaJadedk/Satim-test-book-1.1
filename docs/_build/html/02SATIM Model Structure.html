@@ -397,7 +397,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">2.2.6 Region</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-supply-disaggregation">2.3 Energy Supply Disaggregation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-supply-disaggregation">2.3 Energy Supply Disaggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-supply-sector">Electricity Supply Sector</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-structure">Model Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transmission">Transmission</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generation">Generation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterization-of-existing-power-plants">Parameterization of Existing Power Plants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-parameterization-for-combined-heat-power-chp">Additional Parameterization for Combined Heat &amp; Power (CHP)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-parameterization-for-existing-pump-storage-systems">Additional Parameterization for Existing Pump Storage Systems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-assumptions-for-new-future-power-plants">Structure &amp; Assumptions for New/Future Power Plants</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-sector-disaggregation">2.4 Demand Sector Disaggregation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transport">2.4.1 Transport</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#industrial">2.4.2 Industrial</a></li>
@@ -486,9 +499,200 @@ document.write(`
 </section>
 <section id="energy-supply-disaggregation">
 <h2>2.3 Energy Supply Disaggregation<a class="headerlink" href="#energy-supply-disaggregation" title="Link to this heading">#</a></h2>
-<p>The energy supply in SATIM is disaggregated into various components to comprehensively capture the complexities of the South African energy system. The disaggregation includes the extraction of primary resources, production of electricity and liquid fuels, as well as imports of electricity, oil, and other liquid fuels products. Coal exports, electricity exports, and overproduction of liquid fuels are also considered within the energy supply sector</p>
+<p>The energy supply in SATIM is disaggregated into various components to comprehensively capture the complexities of the South African energy system. The disaggregation includes the extraction of primary resources, production of electricity and liquid fuels, as well as imports of electricity, oil, and other liquid fuels products. Coal exports, electricity exports, and overproduction of liquid fuels are also considered within the energy supply sector.</p>
 <p>In the power sector, the representation encompasses the generation, transmission, and distribution components, with a detailed modeling of operating power plants, including their decommissioning schedule, planned new builds, retrofits, and technology characteristics such as efficiency and capacity factors. The individual representation of power plants allows for the incorporation of expected decommissioning schedules, planned retrofits, and technology characteristics, providing a detailed view of the power sector within SATIM.</p>
-<p>Additionally, the supply mix includes the role of renewables in transitioning the electricity generation mix, reflecting the potential for a transition towards renewables and the utilization of resources such as solar and wind for electricity generation.</p>
+<section id="electricity-supply-sector">
+<h3>Electricity Supply Sector<a class="headerlink" href="#electricity-supply-sector" title="Link to this heading">#</a></h3>
+<section id="model-structure">
+<h4>Model Structure<a class="headerlink" href="#model-structure" title="Link to this heading">#</a></h4>
+<p>The power sector is split into Generation, Transmission and Distribution. In SATIM, the Generation component is modelled in the most detail. Since the country is modelled as a single node, transmission is modelled as a single technology linking centralised/high voltage electricity (ELCC) to medium voltage levels (ELC). The medium voltage electricity is distributed to each sector using a different technology to capture the different losses incurred in the different sectors. This is depicted in the figure 1 below. Note that for purposes of simplicity, the supply technologies and sector distribution legs have been shown in aggregate form.</p>
+<p><img alt="alt text" src="_images/image.png" /></p>
+<p><em>Figure 1: Simple Schematic of the Electricity Supply Sector in SATIM.</em></p>
+<p>Technologies such as pumped storage are modeled as consuming power from the transmission system and feeding output back into the system; cogeneration options are modeled after transmission and feed power back onto the grid at that point (industrial electricity demand), and also generate heat which contributes to the industrial heat demand. Aggregate losses are modeled for transmission and distribution. The model is a one-region model and so there is no impact on results from shifting generation from current locations to more dispersed locations (for instance as a result of developing a significant amount of renewable energy capacity). The structure and assumptions underlying the transmission, distribution and generation components of SATIM are briefly discussed below.</p>
+</section>
+<section id="transmission">
+<h4>Transmission<a class="headerlink" href="#transmission" title="Link to this heading">#</a></h4>
+<p>Transmission capacity is modeled as a single technology linking centralised/high voltage electricity (ELCC) to medium voltage (MV)electricity lines (ELC). Note that for purposes of simplicity, the supply technologies and sector distribution legs are aggregated in <strong>Figure 1</strong>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Assumptions Electricity Transmission</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Transmission of electricity between ELCC and the MV distribution network incurs a loss of 3.9%.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MV electricity is distributed to each sector in a way that captures  the different  levels of losses that are  incurred distributing electricity to the sector. For example,the distribution of electricity to residential households is assumed to incur a loss of 19.7% whereas the distribution of electricity to the industrial sectors (excluding mining) incurs a smaller average loss of 6.%.</p></td>
+</tr>
+<tr class="row-even"><td><p>An existing stock/capacity for the transmission technology is estimated based on the peak demand in the base year plus a reserve margin. For the base year of 2006, this is currently estimated as 31.8 GW.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The operating cost of is set to reflect the estimated running cost of this Infrastructure. Currently estimated as 287.91 R/kW.</p></td>
+</tr>
+<tr class="row-even"><td><p>The investment cost of new transmission capacity is set to reflect estimated average cost of investment. Currently estimated at 6329.31 R/kW.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A reserve constraint is imposed on ELC to ensure the reserve is maintained.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distribution">
+<h4>Distribution<a class="headerlink" href="#distribution" title="Link to this heading">#</a></h4>
+<p><strong>Distribution Technologies in SATIM Distribution Leg Technology Code in SATIM:</strong></p>
+<p><em>Electricity to Agriculture → AGRELC</em></p>
+<p><em>Electricity to Commerce → COMELC</em></p>
+<p><em>Electricity to Industry → INDELC</em></p>
+<p><em>Electricity to Residential → RESELC</em></p>
+<p><em>Electricity to Transport → TRNELC</em></p>
+<p><em>Electricity to Upstream (Refineries) → UPSELC</em></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Assumptions Electricity Distribution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>The distribution technologies capture the average losses incurred by each sector. Currently all sectors are modelled to experience electricity supply at national average distribution losses (10%). Large industries may however have their own proximate substation supplied at the very highest distribution voltage so losses would be lower than is currently modelled in SATIM. This is in the process of being amended.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The capacity is set according to the peak demand in each sector plus the reserve margin.</p></td>
+</tr>
+<tr class="row-even"><td><p>A reserve constraint is imposed on each distribution technology to ensure the reserve is maintained.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The operating cost of the distribution technology is set to reflect the average tariff seen by each sector.</p></td>
+</tr>
+<tr class="row-even"><td><p>The investment cost of new distribution capacity is set to reflect average cost of investment.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Since South Africa is modeled as a single node in SATIM,transmission and distribution losses are applied as aggregate losses in the model. Under this configuration, shifting generation from current location to more dispersed location does not impact results for instance as a result of developing a significant amount of renewable energy capacity.</p>
+</section>
+<section id="generation">
+<h4>Generation<a class="headerlink" href="#generation" title="Link to this heading">#</a></h4>
+<p>Technologies and Commodities represented in the model are described in <strong>Annex A1+2.</strong> The structure and assumptions used to model existing and future generation technologies are dealt with in greater detail below.</p>
+</section>
+<section id="parameterization-of-existing-power-plants">
+<h4>Parameterization of Existing Power Plants<a class="headerlink" href="#parameterization-of-existing-power-plants" title="Link to this heading">#</a></h4>
+<p>The technologies in the demand-side sectors of SATIM are quite uniform in an abstract sense, being defined by a limited number of parameters such as efficiency, demand share and cost. The supply-side technologies are necessarily more complex and a great many parameters exist in TIMES that can be used to profile them and introduce constraints into the model. Thus it makes sense to explore the methodology for this sector by detailing the parameterization of 85 technologies. Existing power plant technologies are modelled in a similar way and all have the following basic parameterization. CHP plants and Pumped Storage plants have additional parameters in SATIM which are discussed separately below. The basic parameters input to the model are listed below.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Data + Sources</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Energy Input Commodity or Fuel</p></td>
+<td><p>Fuel is coal, diesel and other fuels</p></td>
+<td><p>Annex A1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output Commodity</p></td>
+<td><p>In this case is centralized electricity (ELCC).</p></td>
+<td><p>Annex A1</p></td>
+</tr>
+<tr class="row-even"><td><p>Efficiency</p></td>
+<td><p>Relates the energy input commodities to the sum of energy output commodities.</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fixed and Variable operating and maintenance cost</p></td>
+<td><p>Relates to yearly cost to run power technologies. Excludes fuel costs except in the case of the Koeberg nuclear plant.</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+<tr class="row-even"><td><p>Overnight Investment Cost</p></td>
+<td><p>Cost of construction for a technology, assuming that the facility is built and commissioned instantaneously</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Annual Availability</p></td>
+<td><p>Refers to the percentage of time within a year that a power generation facility is capable of producing electricity under normal operating conditions. Accounting for scheduled and unplanned downtime.</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+<tr class="row-even"><td><p>Refurbishment/retirement profile</p></td>
+<td><p>Specifies the capacity that is initially available and how that increases in the case of refurbishments and decreases as plants or parts of plants retire in the future. The assumed profiles for Eskom plants are described below.</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lifetime</p></td>
+<td><p>Refers to operational life of a technology,</p></td>
+<td><p>Annex A3</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Refurbishment/retirement profile:</strong></p>
+<p><img alt="alt text" src="_images/image-1.png" />
+<em>Figure 2. Eskom decommissioning and retrofitting schedule</em></p>
+<p>Operating power plants are represented individually and the power sector in SATIM therefore includes the expected decommissioning schedule of coal fired power plants,all planned new builds, planned retrofits as well as plant technology characteristics (efficiency, capacity factors etc). The expected decommissioning schedule of the existing coal fleet, air quality plant retrofit schedules for fabric filter plants (FFP) and low NOx burners (LNB) are assumed to follow the ESKOM decommissioning
+schedule represented in Table X,although it is possible to run scenarios with endogenous retirement of existing and new coal power plants. Flue gas desulfurization (FGD) retrofits are not accounted for. Medupi and Kusile are decommissioned after 2050 which falls outside of the planning window.</p>
+</section>
+<section id="additional-parameterization-for-combined-heat-power-chp">
+<h4>Additional Parameterization for Combined Heat &amp; Power (CHP)<a class="headerlink" href="#additional-parameterization-for-combined-heat-power-chp" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Industrial Process Heat [IPPS]</p></td>
+<td><p>CHP’s are modelled as producing a second output commodity, Industrial Process Heat [IPPS] pertaining to the sub-sector (eg. Iron &amp; Steel) in which the CHP is found.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating in back-pressure, with a constant Electricity to Heat output ratio [NCAP_CHPR].</p></td>
+<td><p>In back pressure mode you cannot bypass the heat load so the electricity to heat ratio is constant. Alternatively in ‘Condensing’ mode, the electricity to heat ratio is determined endogenously which requires a number of additional parameters and is appropriate when CHP has a large share of the system which is not the case in SATIM.</p></td>
+</tr>
+<tr class="row-even"><td><p>Additional input fuel</p></td>
+<td><p>Some CHP’s are given the option to use an alternate fuel (e.g. biomass and coal). The share of biomass/coal is fixed based on estimates of historical consumption.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="additional-parameterization-for-existing-pump-storage-systems">
+<h4>Additional Parameterization for Existing Pump Storage Systems<a class="headerlink" href="#additional-parameterization-for-existing-pump-storage-systems" title="Link to this heading">#</a></h4>
+<p><img alt="alt text" src="_images/image-2.png" />
+<em>Figure 3. Schematic of Pump Storage System Representation in SATIM</em></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Night storage technology [NST]</p></td>
+<td><p>In TIMES you need to declare storage technologies as such and the storage dam technology is allocated as a member of the set [NST] which signifies it as a night storage technology.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parameter Attribution</p></td>
+<td><p>The cycle efficiency of the system is attributed to the pump technology. The capacity and cost parameters are attributed to the turbine.</p></td>
+</tr>
+<tr class="row-even"><td><p>Input + Output commodity</p></td>
+<td><p>The input commodity is electricity downstream of transmission (ELC), and the output commodity is electricity upstream of transmission (ELCC).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="structure-assumptions-for-new-future-power-plants">
+<h4>Structure &amp; Assumptions for New/Future Power Plants<a class="headerlink" href="#structure-assumptions-for-new-future-power-plants" title="Link to this heading">#</a></h4>
+<p>A great many technologies are possible candidates for future supply of electricity in the power sector. The level of detail selected here is a trade-off between capturing as many of these possibilities and not wasting effort on very marginal future prospects or on disaggregation that is still not useful because the power sector is only slowly diversifying now and trends are unclear. New power production technologies need not only to reflect the many emerging renewable and clean coal technologies but also all possible options for import from neighboring regions. South Africa has, for instance, a rich solarresource and therefore there is reasonable disaggregation of these technologies.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Additional Assumptions for New Power Plants:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>There is no initial capacity or retirement profile for new technologies but future capacity is bounded by a capacity limit parameter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>An investment cost is specified. Renewable technologies have investment costs that decrease over time to capture the effect of learning from global installed capacity (note that in this model this parameter is set exogenously).</p></td>
+</tr>
+<tr class="row-even"><td><p>A technology lead-time is specified to capture the construction duration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>In the case of committed build, a lower bound is imposed on the new capacity as per the build plan, taking into account the construction duration.</p></td>
+</tr>
+<tr class="row-even"><td><p>Some technologies have a lower bound on the load factor (also called capacity factor) to characterize fuel contracts. This is defined by setting up an inequality relationship between special algebraic parameters rather than the parameter-value/s pair method of most other parameterisation in TIMES. This means that the plants must generate a minimum of electricity to attain this capacity factor. Currently in SATIM this only applies to gas-fuelled gas turbine plant which must maintain a load factor in excess of 20% in terms of fuel supply contracts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SATIM has two wind classes, with capacity factors of 29% and 25%,to reflect the varying quality of sites. Each wind class is bounded by the potential for deployment in each class, that is, the minimum or maximum limit on capacity built specifically in that year. Currently in SATIM this is only used to reflect historical build of the high resource wind class .</p></td>
+</tr>
+<tr class="row-even"><td><p>The intermittency of wind is captured by setting the capacity availability equal to the energy availability. For instance a 100 MW wind farm at 29% estimated capacity factor will be modelled as only being able to produce 29MW of output in any time-slice.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The capacity credit of wind is fixed at a conservative value below the capacity factor. Currently in SATIM the capacity credit for both wind classes is set to 0.23.</p></td>
+</tr>
+<tr class="row-even"><td><p>In SATIM, solar PV without battery storage can only output power during daytime hours. This is accomplished by setting the capacity factor per time slice. Timeslices not in daylight are set to zero.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 </section>
 <section id="demand-sector-disaggregation">
 <h2>2.4 Demand Sector Disaggregation<a class="headerlink" href="#demand-sector-disaggregation" title="Link to this heading">#</a></h2>
@@ -605,7 +809,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">2.2.6 Region</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-supply-disaggregation">2.3 Energy Supply Disaggregation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-supply-disaggregation">2.3 Energy Supply Disaggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-supply-sector">Electricity Supply Sector</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-structure">Model Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transmission">Transmission</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generation">Generation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterization-of-existing-power-plants">Parameterization of Existing Power Plants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-parameterization-for-combined-heat-power-chp">Additional Parameterization for Combined Heat &amp; Power (CHP)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-parameterization-for-existing-pump-storage-systems">Additional Parameterization for Existing Pump Storage Systems</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-assumptions-for-new-future-power-plants">Structure &amp; Assumptions for New/Future Power Plants</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demand-sector-disaggregation">2.4 Demand Sector Disaggregation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transport">2.4.1 Transport</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#industrial">2.4.2 Industrial</a></li>
