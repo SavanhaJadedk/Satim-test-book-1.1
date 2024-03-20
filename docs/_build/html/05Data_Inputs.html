@@ -424,7 +424,28 @@ document.write(`
 <h1>5. Data Inputs<a class="headerlink" href="#data-inputs" title="Link to this heading">#</a></h1>
 <section id="data-inputs-satim">
 <h2>5.1 Data Inputs SATIM<a class="headerlink" href="#data-inputs-satim" title="Link to this heading">#</a></h2>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="c1"># Specify the path to your local image file</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;sankey 2017.jpg&#39;</span>
+
+<span class="c1"># Display the image</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">image_path</span><span class="p">))</span>
+
+<span class="c1"># Add a caption using Markdown</span>
+<span class="n">caption</span> <span class="o">=</span> <span class="s2">&quot; SANKEY diagram of the South African Energy System in 2017. This section presents the main databases used to build a representation of this system in SATIM&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">caption</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/90fe442709ccc0e8b481b50b9c1c0c03d5d974c657f968eaaac74da2fc8af88d.jpg" src="_images/90fe442709ccc0e8b481b50b9c1c0c03d5d974c657f968eaaac74da2fc8af88d.jpg" />
 <p>** SANKEY diagram of the South African Energy System in 2017. This section presents the main databases used to build a representation of this system in SATIM**</p>
@@ -462,13 +483,91 @@ Temporal changes in daily and seasonal demand in the lowest resolution version o
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="onshore-wind-cost-data-inputs">
 <h1>Onshore Wind Cost Data Inputs<a class="headerlink" href="#onshore-wind-cost-data-inputs" title="Link to this heading">#</a></h1>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="c1"># Specify the path to your local image file</span>
+<span class="n">image_path</span> <span class="o">=</span> <span class="s1">&#39;WASA_3_Resource_Map_March_2021.png&#39;</span>
+
+<span class="c1"># Display the image</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">image_path</span><span class="p">))</span>
+
+<span class="c1"># Add a caption using Markdown</span>
+<span class="n">caption</span> <span class="o">=</span> <span class="s2">&quot;WASA Resource Map (March 2021). Source:SANEDI (n.d.). Wind Atlas for South Africa (WASA) . [online] www.wasaproject.info. Available at: https://www.wasaproject.info/.&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**</span><span class="si">{</span><span class="n">caption</span><span class="si">}</span><span class="s2">**&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/4675c995413d6b01b3155f71a256744abf70de0ca4114cac6beb083728e7415f.png" src="_images/4675c995413d6b01b3155f71a256744abf70de0ca4114cac6beb083728e7415f.png" />
 <p><strong>WASA Resource Map (March 2021). Source:SANEDI (n.d.). Wind Atlas for South Africa (WASA) . [online] www.wasaproject.info. Available at: https://www.wasaproject.info/.</strong></p>
 </div>
 </div>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># Suppress specific warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.reader.excel&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.reader.drawings&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.worksheet._reader&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load data from Excel sheet</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;VT_REGION1_ELC.xlsx&#39;</span>
+<span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">&#39;ProcDataRECostProfiles&#39;</span>
+<span class="n">data_range_cells_1</span> <span class="o">=</span> <span class="s1">&#39;G12:M12&#39;</span>
+<span class="n">data_range_cells_2</span> <span class="o">=</span> <span class="s1">&#39;G24:M24&#39;</span>
+
+<span class="c1"># Load workbook and select the sheet</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">data_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="n">sheet_name</span><span class="p">]</span>
+
+<span class="c1"># Extract data from the first range into a DataFrame</span>
+<span class="n">data_1</span> <span class="o">=</span> <span class="n">sheet</span><span class="p">[</span><span class="n">data_range_cells_1</span><span class="p">]</span>
+<span class="n">columns_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Column1&#39;</span><span class="p">,</span> <span class="s1">&#39;Column2&#39;</span><span class="p">,</span> <span class="s1">&#39;Column3&#39;</span><span class="p">,</span> <span class="s1">&#39;Column4&#39;</span><span class="p">,</span> <span class="s1">&#39;Column5&#39;</span><span class="p">,</span> <span class="s1">&#39;Column6&#39;</span><span class="p">,</span> <span class="s1">&#39;Reference&#39;</span><span class="p">]</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data_1</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns_1</span><span class="p">)</span>
+
+<span class="c1"># Extract data from the second range into a DataFrame</span>
+<span class="n">data_2</span> <span class="o">=</span> <span class="n">sheet</span><span class="p">[</span><span class="n">data_range_cells_2</span><span class="p">]</span>
+<span class="n">columns_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Column1&#39;</span><span class="p">,</span> <span class="s1">&#39;Column2&#39;</span><span class="p">,</span> <span class="s1">&#39;Column3&#39;</span><span class="p">,</span> <span class="s1">&#39;Column4&#39;</span><span class="p">,</span> <span class="s1">&#39;Column5&#39;</span><span class="p">,</span> <span class="s1">&#39;Column6&#39;</span><span class="p">,</span> <span class="s1">&#39;Reference&#39;</span><span class="p">]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data_2</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns_2</span><span class="p">)</span>
+
+<span class="c1"># Combine the two DataFrames along the rows (axis=0)</span>
+<span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Replace &quot;null&quot; and NaN with blanks</span>
+<span class="n">df_combined</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s2">&quot;null&quot;</span><span class="p">,</span> <span class="s2">&quot;#DIV/0!&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Round all numbers to two decimal places</span>
+<span class="n">df_combined</span> <span class="o">=</span> <span class="n">df_combined</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Specify row headers</span>
+<span class="n">df_combined</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Overnight Cost (2022 ZAR/kW)&#39;</span><span class="p">,</span> <span class="s1">&#39;LCOE (2022 R/kWh)&#39;</span><span class="p">]</span>
+
+<span class="c1"># Specify column headers</span>
+<span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2025&#39;</span><span class="p">,</span> <span class="s1">&#39;2030&#39;</span><span class="p">,</span> <span class="s1">&#39;2040&#39;</span><span class="p">,</span> <span class="s1">&#39;2050&#39;</span><span class="p">,</span> <span class="s1">&#39;References&#39;</span><span class="p">]</span>
+<span class="n">df_combined</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span>
+
+<span class="c1"># Display the final DataFrame</span>
+<span class="n">df_combined</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -589,7 +688,65 @@ Temporal changes in daily and seasonal demand in the lowest resolution version o
 </table>
 </div></div></div>
 </div>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># Suppress specific warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.reader.excel&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.reader.drawings&quot;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s2">&quot;openpyxl.worksheet._reader&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load data from Excel sheet</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;VT_REGION1_ELC.xlsx&#39;</span>
+<span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">&#39;ProcDataRECostProfiles&#39;</span>
+
+<span class="c1"># Load workbook and select the sheet</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">data_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">wb</span><span class="p">[</span><span class="n">sheet_name</span><span class="p">]</span>
+
+<span class="c1"># Extract sources and data for the plot</span>
+<span class="n">sources_range</span> <span class="o">=</span> <span class="s1">&#39;A49:A61&#39;</span>
+<span class="n">data_range</span> <span class="o">=</span> <span class="s1">&#39;H49:L61&#39;</span>
+
+<span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">sheet</span><span class="p">[</span><span class="n">sources_range</span><span class="p">]]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sheet</span><span class="p">[</span><span class="n">data_range</span><span class="p">]]</span>
+
+<span class="c1"># Create a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2025&#39;</span><span class="p">,</span> <span class="s1">&#39;2030&#39;</span><span class="p">,</span> <span class="s1">&#39;2040&#39;</span><span class="p">,</span> <span class="s1">&#39;2050&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">sources</span><span class="p">)</span>
+
+<span class="c1"># Filter out blank values from the DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+
+<span class="c1"># Add labels and grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Overnight Wind Costs Comparison (2022 R/kW)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Overnight Wind Costs (2022 R/kW)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sources&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/92beb202fc3a85a158e99c71f3d4ad8be5d45b700ca51b9667d85ed30238eb96.png" src="_images/92beb202fc3a85a158e99c71f3d4ad8be5d45b700ca51b9667d85ed30238eb96.png" />
 </div>

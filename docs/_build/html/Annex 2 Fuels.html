@@ -407,556 +407,602 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>Check the hide-cell/hide-input/remove-cell/remove-input functionality.</p>
 </div>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="c1"># Load the Excel file</span>
+<span class="n">excel_file</span> <span class="o">=</span> <span class="s1">&#39;VT_REGION1_ELC.xlsx&#39;</span>
+
+<span class="c1"># Load the specified sheet</span>
+<span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">&#39;Commodities&#39;</span>
+<span class="n">data_range</span> <span class="o">=</span> <span class="s1">&#39;B7:F75&#39;</span>
+
+<span class="c1"># Read data from Excel, excluding the first row</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">excel_file</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="s2">&quot;B:F&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">69</span><span class="p">)</span>
+
+<span class="c1"># Assign column names</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Commodity Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Commodity Description&#39;</span><span class="p">,</span> <span class="s1">&#39;Commodity Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;Commodity Set(Csets)&#39;</span><span class="p">,</span> <span class="s1">&#39;Timeslice level (CTSLvl)&#39;</span><span class="p">]</span>
+
+<span class="c1"># Remove empty rows</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Define CSS styles for the table</span>
+<span class="n">table_styles</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;th&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;font-size&quot;</span><span class="p">,</span> <span class="s2">&quot;14px&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;text-align&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#f2f2f2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;padding&quot;</span><span class="p">,</span> <span class="s2">&quot;8px&quot;</span><span class="p">)]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;font-size&quot;</span><span class="p">,</span> <span class="s2">&quot;14px&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;text-align&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;padding&quot;</span><span class="p">,</span> <span class="s2">&quot;8px&quot;</span><span class="p">)]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">selector</span><span class="o">=</span><span class="s2">&quot;tr:hover&quot;</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#f5f5f5&quot;</span><span class="p">)]),</span>
+<span class="p">]</span>
+
+<span class="c1"># Apply CSS styles to the HTML table</span>
+<span class="n">styled_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">table_styles</span><span class="p">)</span>
+<span class="c1"># Define table header</span>
+<span class="n">table_header</span> <span class="o">=</span> <span class="s2">&quot;### Table A2: The commodities and fuels included in the power sector of SATIM.</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="c1"># Display table header</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">table_header</span><span class="p">))</span>
+
+<span class="c1"># Display the styled table</span>
+<span class="n">styled_table</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <h3 class="rubric" id="table-a2-the-commodities-and-fuels-included-in-the-power-sector-of-satim">Table A2: The commodities and fuels included in the power sector of SATIM.</h3>
 <div class="output text_html"><style type="text/css">
-#T_efdd8 th {
+#T_c01e6 th {
   font-size: 14px;
   text-align: left;
   background-color: #f2f2f2;
   padding: 8px;
 }
-#T_efdd8 td {
+#T_c01e6 td {
   font-size: 14px;
   text-align: left;
   padding: 8px;
 }
-#T_efdd8 tr:hover {
+#T_c01e6 tr:hover {
   background-color: #f5f5f5;
 }
 </style>
-<table id="T_efdd8">
+<table id="T_c01e6">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_efdd8_level0_col0" class="col_heading level0 col0" >Commodity Code</th>
-      <th id="T_efdd8_level0_col1" class="col_heading level0 col1" >Commodity Description</th>
-      <th id="T_efdd8_level0_col2" class="col_heading level0 col2" >Commodity Unit</th>
-      <th id="T_efdd8_level0_col3" class="col_heading level0 col3" >Commodity Set(Csets)</th>
-      <th id="T_efdd8_level0_col4" class="col_heading level0 col4" >Timeslice level (CTSLvl)</th>
+      <th id="T_c01e6_level0_col0" class="col_heading level0 col0" >Commodity Code</th>
+      <th id="T_c01e6_level0_col1" class="col_heading level0 col1" >Commodity Description</th>
+      <th id="T_c01e6_level0_col2" class="col_heading level0 col2" >Commodity Unit</th>
+      <th id="T_c01e6_level0_col3" class="col_heading level0 col3" >Commodity Set(Csets)</th>
+      <th id="T_c01e6_level0_col4" class="col_heading level0 col4" >Timeslice level (CTSLvl)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_efdd8_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_efdd8_row0_col0" class="data row0 col0" >ZDUMETRANS</td>
-      <td id="T_efdd8_row0_col1" class="data row0 col1" >Dummy Commodity for ETRANSDUM</td>
-      <td id="T_efdd8_row0_col2" class="data row0 col2" >PJ</td>
-      <td id="T_efdd8_row0_col3" class="data row0 col3" >NRG</td>
-      <td id="T_efdd8_row0_col4" class="data row0 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row1" class="row_heading level0 row1" >2</th>
-      <td id="T_efdd8_row1_col0" class="data row1 col0" >PWRCLEARNO</td>
-      <td id="T_efdd8_row1_col1" class="data row1 col1" >Coal for ARNOT Power Plant</td>
-      <td id="T_efdd8_row1_col2" class="data row1 col2" >PJ</td>
-      <td id="T_efdd8_row1_col3" class="data row1 col3" >NRG</td>
-      <td id="T_efdd8_row1_col4" class="data row1 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row2" class="row_heading level0 row2" >3</th>
-      <td id="T_efdd8_row2_col0" class="data row2 col0" >PWRCLECAMD</td>
-      <td id="T_efdd8_row2_col1" class="data row2 col1" >Coal for CAMDEN Power Plant</td>
-      <td id="T_efdd8_row2_col2" class="data row2 col2" >PJ</td>
-      <td id="T_efdd8_row2_col3" class="data row2 col3" >NRG</td>
-      <td id="T_efdd8_row2_col4" class="data row2 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row3" class="row_heading level0 row3" >4</th>
-      <td id="T_efdd8_row3_col0" class="data row3 col0" >PWRCLEDUVH</td>
-      <td id="T_efdd8_row3_col1" class="data row3 col1" >Coal for DUVHA Power Plant</td>
-      <td id="T_efdd8_row3_col2" class="data row3 col2" >PJ</td>
-      <td id="T_efdd8_row3_col3" class="data row3 col3" >NRG</td>
-      <td id="T_efdd8_row3_col4" class="data row3 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row4" class="row_heading level0 row4" >5</th>
-      <td id="T_efdd8_row4_col0" class="data row4 col0" >PWRCLEGROO</td>
-      <td id="T_efdd8_row4_col1" class="data row4 col1" >Coal for GROOTVLEI Power Plant</td>
-      <td id="T_efdd8_row4_col2" class="data row4 col2" >PJ</td>
-      <td id="T_efdd8_row4_col3" class="data row4 col3" >NRG</td>
-      <td id="T_efdd8_row4_col4" class="data row4 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row5" class="row_heading level0 row5" >6</th>
-      <td id="T_efdd8_row5_col0" class="data row5 col0" >PWRCLEHEND</td>
-      <td id="T_efdd8_row5_col1" class="data row5 col1" >Coal for HENDRINA Power Plant</td>
-      <td id="T_efdd8_row5_col2" class="data row5 col2" >PJ</td>
-      <td id="T_efdd8_row5_col3" class="data row5 col3" >NRG</td>
-      <td id="T_efdd8_row5_col4" class="data row5 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row6" class="row_heading level0 row6" >7</th>
-      <td id="T_efdd8_row6_col0" class="data row6 col0" >PWRCLEKEND</td>
-      <td id="T_efdd8_row6_col1" class="data row6 col1" >Coal for KENDAL Power Plant</td>
-      <td id="T_efdd8_row6_col2" class="data row6 col2" >PJ</td>
-      <td id="T_efdd8_row6_col3" class="data row6 col3" >NRG</td>
-      <td id="T_efdd8_row6_col4" class="data row6 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row7" class="row_heading level0 row7" >8</th>
-      <td id="T_efdd8_row7_col0" class="data row7 col0" >PWRCLEKOMA</td>
-      <td id="T_efdd8_row7_col1" class="data row7 col1" >Coal for KOMATI Power Plant</td>
-      <td id="T_efdd8_row7_col2" class="data row7 col2" >PJ</td>
-      <td id="T_efdd8_row7_col3" class="data row7 col3" >NRG</td>
-      <td id="T_efdd8_row7_col4" class="data row7 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row8" class="row_heading level0 row8" >9</th>
-      <td id="T_efdd8_row8_col0" class="data row8 col0" >PWRCLEKRIE</td>
-      <td id="T_efdd8_row8_col1" class="data row8 col1" >Coal for KRIEL Power Plant</td>
-      <td id="T_efdd8_row8_col2" class="data row8 col2" >PJ</td>
-      <td id="T_efdd8_row8_col3" class="data row8 col3" >NRG</td>
-      <td id="T_efdd8_row8_col4" class="data row8 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row9" class="row_heading level0 row9" >10</th>
-      <td id="T_efdd8_row9_col0" class="data row9 col0" >PWRCLELETH</td>
-      <td id="T_efdd8_row9_col1" class="data row9 col1" >Coal for LETHABO Power Plant</td>
-      <td id="T_efdd8_row9_col2" class="data row9 col2" >PJ</td>
-      <td id="T_efdd8_row9_col3" class="data row9 col3" >NRG</td>
-      <td id="T_efdd8_row9_col4" class="data row9 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row10" class="row_heading level0 row10" >11</th>
-      <td id="T_efdd8_row10_col0" class="data row10 col0" >PWRCLEMAJU</td>
-      <td id="T_efdd8_row10_col1" class="data row10 col1" >Coal for MAJUBA DRY Power Plant</td>
-      <td id="T_efdd8_row10_col2" class="data row10 col2" >PJ</td>
-      <td id="T_efdd8_row10_col3" class="data row10 col3" >NRG</td>
-      <td id="T_efdd8_row10_col4" class="data row10 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row11" class="row_heading level0 row11" >12</th>
-      <td id="T_efdd8_row11_col0" class="data row11 col0" >PWRCLEMATI</td>
-      <td id="T_efdd8_row11_col1" class="data row11 col1" >Coal for MATIMBA Power Plant</td>
-      <td id="T_efdd8_row11_col2" class="data row11 col2" >PJ</td>
-      <td id="T_efdd8_row11_col3" class="data row11 col3" >NRG</td>
-      <td id="T_efdd8_row11_col4" class="data row11 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row12" class="row_heading level0 row12" >13</th>
-      <td id="T_efdd8_row12_col0" class="data row12 col0" >PWRCLEMATL</td>
-      <td id="T_efdd8_row12_col1" class="data row12 col1" >Coal for MATLA Power Plant</td>
-      <td id="T_efdd8_row12_col2" class="data row12 col2" >PJ</td>
-      <td id="T_efdd8_row12_col3" class="data row12 col3" >NRG</td>
-      <td id="T_efdd8_row12_col4" class="data row12 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_c01e6_row0_col0" class="data row0 col0" >ZDUMETRANS</td>
+      <td id="T_c01e6_row0_col1" class="data row0 col1" >Dummy Commodity for ETRANSDUM</td>
+      <td id="T_c01e6_row0_col2" class="data row0 col2" >PJ</td>
+      <td id="T_c01e6_row0_col3" class="data row0 col3" >NRG</td>
+      <td id="T_c01e6_row0_col4" class="data row0 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row1" class="row_heading level0 row1" >2</th>
+      <td id="T_c01e6_row1_col0" class="data row1 col0" >PWRCLEARNO</td>
+      <td id="T_c01e6_row1_col1" class="data row1 col1" >Coal for ARNOT Power Plant</td>
+      <td id="T_c01e6_row1_col2" class="data row1 col2" >PJ</td>
+      <td id="T_c01e6_row1_col3" class="data row1 col3" >NRG</td>
+      <td id="T_c01e6_row1_col4" class="data row1 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row2" class="row_heading level0 row2" >3</th>
+      <td id="T_c01e6_row2_col0" class="data row2 col0" >PWRCLECAMD</td>
+      <td id="T_c01e6_row2_col1" class="data row2 col1" >Coal for CAMDEN Power Plant</td>
+      <td id="T_c01e6_row2_col2" class="data row2 col2" >PJ</td>
+      <td id="T_c01e6_row2_col3" class="data row2 col3" >NRG</td>
+      <td id="T_c01e6_row2_col4" class="data row2 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row3" class="row_heading level0 row3" >4</th>
+      <td id="T_c01e6_row3_col0" class="data row3 col0" >PWRCLEDUVH</td>
+      <td id="T_c01e6_row3_col1" class="data row3 col1" >Coal for DUVHA Power Plant</td>
+      <td id="T_c01e6_row3_col2" class="data row3 col2" >PJ</td>
+      <td id="T_c01e6_row3_col3" class="data row3 col3" >NRG</td>
+      <td id="T_c01e6_row3_col4" class="data row3 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row4" class="row_heading level0 row4" >5</th>
+      <td id="T_c01e6_row4_col0" class="data row4 col0" >PWRCLEGROO</td>
+      <td id="T_c01e6_row4_col1" class="data row4 col1" >Coal for GROOTVLEI Power Plant</td>
+      <td id="T_c01e6_row4_col2" class="data row4 col2" >PJ</td>
+      <td id="T_c01e6_row4_col3" class="data row4 col3" >NRG</td>
+      <td id="T_c01e6_row4_col4" class="data row4 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row5" class="row_heading level0 row5" >6</th>
+      <td id="T_c01e6_row5_col0" class="data row5 col0" >PWRCLEHEND</td>
+      <td id="T_c01e6_row5_col1" class="data row5 col1" >Coal for HENDRINA Power Plant</td>
+      <td id="T_c01e6_row5_col2" class="data row5 col2" >PJ</td>
+      <td id="T_c01e6_row5_col3" class="data row5 col3" >NRG</td>
+      <td id="T_c01e6_row5_col4" class="data row5 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row6" class="row_heading level0 row6" >7</th>
+      <td id="T_c01e6_row6_col0" class="data row6 col0" >PWRCLEKEND</td>
+      <td id="T_c01e6_row6_col1" class="data row6 col1" >Coal for KENDAL Power Plant</td>
+      <td id="T_c01e6_row6_col2" class="data row6 col2" >PJ</td>
+      <td id="T_c01e6_row6_col3" class="data row6 col3" >NRG</td>
+      <td id="T_c01e6_row6_col4" class="data row6 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row7" class="row_heading level0 row7" >8</th>
+      <td id="T_c01e6_row7_col0" class="data row7 col0" >PWRCLEKOMA</td>
+      <td id="T_c01e6_row7_col1" class="data row7 col1" >Coal for KOMATI Power Plant</td>
+      <td id="T_c01e6_row7_col2" class="data row7 col2" >PJ</td>
+      <td id="T_c01e6_row7_col3" class="data row7 col3" >NRG</td>
+      <td id="T_c01e6_row7_col4" class="data row7 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row8" class="row_heading level0 row8" >9</th>
+      <td id="T_c01e6_row8_col0" class="data row8 col0" >PWRCLEKRIE</td>
+      <td id="T_c01e6_row8_col1" class="data row8 col1" >Coal for KRIEL Power Plant</td>
+      <td id="T_c01e6_row8_col2" class="data row8 col2" >PJ</td>
+      <td id="T_c01e6_row8_col3" class="data row8 col3" >NRG</td>
+      <td id="T_c01e6_row8_col4" class="data row8 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row9" class="row_heading level0 row9" >10</th>
+      <td id="T_c01e6_row9_col0" class="data row9 col0" >PWRCLELETH</td>
+      <td id="T_c01e6_row9_col1" class="data row9 col1" >Coal for LETHABO Power Plant</td>
+      <td id="T_c01e6_row9_col2" class="data row9 col2" >PJ</td>
+      <td id="T_c01e6_row9_col3" class="data row9 col3" >NRG</td>
+      <td id="T_c01e6_row9_col4" class="data row9 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row10" class="row_heading level0 row10" >11</th>
+      <td id="T_c01e6_row10_col0" class="data row10 col0" >PWRCLEMAJU</td>
+      <td id="T_c01e6_row10_col1" class="data row10 col1" >Coal for MAJUBA DRY Power Plant</td>
+      <td id="T_c01e6_row10_col2" class="data row10 col2" >PJ</td>
+      <td id="T_c01e6_row10_col3" class="data row10 col3" >NRG</td>
+      <td id="T_c01e6_row10_col4" class="data row10 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row11" class="row_heading level0 row11" >12</th>
+      <td id="T_c01e6_row11_col0" class="data row11 col0" >PWRCLEMATI</td>
+      <td id="T_c01e6_row11_col1" class="data row11 col1" >Coal for MATIMBA Power Plant</td>
+      <td id="T_c01e6_row11_col2" class="data row11 col2" >PJ</td>
+      <td id="T_c01e6_row11_col3" class="data row11 col3" >NRG</td>
+      <td id="T_c01e6_row11_col4" class="data row11 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row12" class="row_heading level0 row12" >13</th>
+      <td id="T_c01e6_row12_col0" class="data row12 col0" >PWRCLEMATL</td>
+      <td id="T_c01e6_row12_col1" class="data row12 col1" >Coal for MATLA Power Plant</td>
+      <td id="T_c01e6_row12_col2" class="data row12 col2" >PJ</td>
+      <td id="T_c01e6_row12_col3" class="data row12 col3" >NRG</td>
+      <td id="T_c01e6_row12_col4" class="data row12 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row13" class="row_heading level0 row13" >14</th>
-      <td id="T_efdd8_row13_col0" class="data row13 col0" >PWRCLETUTU</td>
-      <td id="T_efdd8_row13_col1" class="data row13 col1" >Coal for TUTUKA Power Plant</td>
-      <td id="T_efdd8_row13_col2" class="data row13 col2" >PJ</td>
-      <td id="T_efdd8_row13_col3" class="data row13 col3" >NRG</td>
-      <td id="T_efdd8_row13_col4" class="data row13 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row13" class="row_heading level0 row13" >14</th>
+      <td id="T_c01e6_row13_col0" class="data row13 col0" >PWRCLETUTU</td>
+      <td id="T_c01e6_row13_col1" class="data row13 col1" >Coal for TUTUKA Power Plant</td>
+      <td id="T_c01e6_row13_col2" class="data row13 col2" >PJ</td>
+      <td id="T_c01e6_row13_col3" class="data row13 col3" >NRG</td>
+      <td id="T_c01e6_row13_col4" class="data row13 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row14" class="row_heading level0 row14" >16</th>
-      <td id="T_efdd8_row14_col0" class="data row14 col0" >PWRCLEKUSI</td>
-      <td id="T_efdd8_row14_col1" class="data row14 col1" >Coal for KUSILE Power Plant</td>
-      <td id="T_efdd8_row14_col2" class="data row14 col2" >PJ</td>
-      <td id="T_efdd8_row14_col3" class="data row14 col3" >NRG</td>
-      <td id="T_efdd8_row14_col4" class="data row14 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row14" class="row_heading level0 row14" >16</th>
+      <td id="T_c01e6_row14_col0" class="data row14 col0" >PWRCLEKUSI</td>
+      <td id="T_c01e6_row14_col1" class="data row14 col1" >Coal for KUSILE Power Plant</td>
+      <td id="T_c01e6_row14_col2" class="data row14 col2" >PJ</td>
+      <td id="T_c01e6_row14_col3" class="data row14 col3" >NRG</td>
+      <td id="T_c01e6_row14_col4" class="data row14 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row15" class="row_heading level0 row15" >17</th>
-      <td id="T_efdd8_row15_col0" class="data row15 col0" >PWRCLEMEDU</td>
-      <td id="T_efdd8_row15_col1" class="data row15 col1" >Coal for MEDUPI Power Plant</td>
-      <td id="T_efdd8_row15_col2" class="data row15 col2" >PJ</td>
-      <td id="T_efdd8_row15_col3" class="data row15 col3" >NRG</td>
-      <td id="T_efdd8_row15_col4" class="data row15 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row15" class="row_heading level0 row15" >17</th>
+      <td id="T_c01e6_row15_col0" class="data row15 col0" >PWRCLEMEDU</td>
+      <td id="T_c01e6_row15_col1" class="data row15 col1" >Coal for MEDUPI Power Plant</td>
+      <td id="T_c01e6_row15_col2" class="data row15 col2" >PJ</td>
+      <td id="T_c01e6_row15_col3" class="data row15 col3" >NRG</td>
+      <td id="T_c01e6_row15_col4" class="data row15 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row16" class="row_heading level0 row16" >19</th>
-      <td id="T_efdd8_row16_col0" class="data row16 col0" >OHF</td>
-      <td id="T_efdd8_row16_col1" class="data row16 col1" >Oil HFO</td>
-      <td id="T_efdd8_row16_col2" class="data row16 col2" >PJ</td>
-      <td id="T_efdd8_row16_col3" class="data row16 col3" >NRG</td>
-      <td id="T_efdd8_row16_col4" class="data row16 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row16" class="row_heading level0 row16" >19</th>
+      <td id="T_c01e6_row16_col0" class="data row16 col0" >OHF</td>
+      <td id="T_c01e6_row16_col1" class="data row16 col1" >Oil HFO</td>
+      <td id="T_c01e6_row16_col2" class="data row16 col2" >PJ</td>
+      <td id="T_c01e6_row16_col3" class="data row16 col3" >NRG</td>
+      <td id="T_c01e6_row16_col4" class="data row16 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row17" class="row_heading level0 row17" >20</th>
-      <td id="T_efdd8_row17_col0" class="data row17 col0" >OKE</td>
-      <td id="T_efdd8_row17_col1" class="data row17 col1" >Oil Kerosene</td>
-      <td id="T_efdd8_row17_col2" class="data row17 col2" >PJ</td>
-      <td id="T_efdd8_row17_col3" class="data row17 col3" >NRG</td>
-      <td id="T_efdd8_row17_col4" class="data row17 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row17" class="row_heading level0 row17" >20</th>
+      <td id="T_c01e6_row17_col0" class="data row17 col0" >OKE</td>
+      <td id="T_c01e6_row17_col1" class="data row17 col1" >Oil Kerosene</td>
+      <td id="T_c01e6_row17_col2" class="data row17 col2" >PJ</td>
+      <td id="T_c01e6_row17_col3" class="data row17 col3" >NRG</td>
+      <td id="T_c01e6_row17_col4" class="data row17 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row18" class="row_heading level0 row18" >21</th>
-      <td id="T_efdd8_row18_col0" class="data row18 col0" >ELCC</td>
-      <td id="T_efdd8_row18_col1" class="data row18 col1" >Electricity</td>
-      <td id="T_efdd8_row18_col2" class="data row18 col2" >PJ</td>
-      <td id="T_efdd8_row18_col3" class="data row18 col3" >NRG</td>
-      <td id="T_efdd8_row18_col4" class="data row18 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row18" class="row_heading level0 row18" >21</th>
+      <td id="T_c01e6_row18_col0" class="data row18 col0" >ELCC</td>
+      <td id="T_c01e6_row18_col1" class="data row18 col1" >Electricity</td>
+      <td id="T_c01e6_row18_col2" class="data row18 col2" >PJ</td>
+      <td id="T_c01e6_row18_col3" class="data row18 col3" >NRG</td>
+      <td id="T_c01e6_row18_col4" class="data row18 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row19" class="row_heading level0 row19" >22</th>
-      <td id="T_efdd8_row19_col0" class="data row19 col0" >ELC</td>
-      <td id="T_efdd8_row19_col1" class="data row19 col1" >Electricity to be Distributed</td>
-      <td id="T_efdd8_row19_col2" class="data row19 col2" >PJ</td>
-      <td id="T_efdd8_row19_col3" class="data row19 col3" >NRG</td>
-      <td id="T_efdd8_row19_col4" class="data row19 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row19" class="row_heading level0 row19" >22</th>
+      <td id="T_c01e6_row19_col0" class="data row19 col0" >ELC</td>
+      <td id="T_c01e6_row19_col1" class="data row19 col1" >Electricity to be Distributed</td>
+      <td id="T_c01e6_row19_col2" class="data row19 col2" >PJ</td>
+      <td id="T_c01e6_row19_col3" class="data row19 col3" >NRG</td>
+      <td id="T_c01e6_row19_col4" class="data row19 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row20" class="row_heading level0 row20" >23</th>
-      <td id="T_efdd8_row20_col0" class="data row20 col0" >ELCD</td>
-      <td id="T_efdd8_row20_col1" class="data row20 col1" >Electricity Demand</td>
-      <td id="T_efdd8_row20_col2" class="data row20 col2" >PJ</td>
-      <td id="T_efdd8_row20_col3" class="data row20 col3" >NRG</td>
-      <td id="T_efdd8_row20_col4" class="data row20 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row20" class="row_heading level0 row20" >23</th>
+      <td id="T_c01e6_row20_col0" class="data row20 col0" >ELCD</td>
+      <td id="T_c01e6_row20_col1" class="data row20 col1" >Electricity Demand</td>
+      <td id="T_c01e6_row20_col2" class="data row20 col2" >PJ</td>
+      <td id="T_c01e6_row20_col3" class="data row20 col3" >NRG</td>
+      <td id="T_c01e6_row20_col4" class="data row20 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row21" class="row_heading level0 row21" >24</th>
-      <td id="T_efdd8_row21_col0" class="data row21 col0" >AGRELC</td>
-      <td id="T_efdd8_row21_col1" class="data row21 col1" >Agriculture Electricity</td>
-      <td id="T_efdd8_row21_col2" class="data row21 col2" >PJ</td>
-      <td id="T_efdd8_row21_col3" class="data row21 col3" >NRG</td>
-      <td id="T_efdd8_row21_col4" class="data row21 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row21" class="row_heading level0 row21" >24</th>
+      <td id="T_c01e6_row21_col0" class="data row21 col0" >AGRELC</td>
+      <td id="T_c01e6_row21_col1" class="data row21 col1" >Agriculture Electricity</td>
+      <td id="T_c01e6_row21_col2" class="data row21 col2" >PJ</td>
+      <td id="T_c01e6_row21_col3" class="data row21 col3" >NRG</td>
+      <td id="T_c01e6_row21_col4" class="data row21 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row22" class="row_heading level0 row22" >25</th>
-      <td id="T_efdd8_row22_col0" class="data row22 col0" >TRAELC</td>
-      <td id="T_efdd8_row22_col1" class="data row22 col1" >Transport Electricity</td>
-      <td id="T_efdd8_row22_col2" class="data row22 col2" >PJ</td>
-      <td id="T_efdd8_row22_col3" class="data row22 col3" >NRG</td>
-      <td id="T_efdd8_row22_col4" class="data row22 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row22" class="row_heading level0 row22" >25</th>
+      <td id="T_c01e6_row22_col0" class="data row22 col0" >TRAELC</td>
+      <td id="T_c01e6_row22_col1" class="data row22 col1" >Transport Electricity</td>
+      <td id="T_c01e6_row22_col2" class="data row22 col2" >PJ</td>
+      <td id="T_c01e6_row22_col3" class="data row22 col3" >NRG</td>
+      <td id="T_c01e6_row22_col4" class="data row22 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row23" class="row_heading level0 row23" >26</th>
-      <td id="T_efdd8_row23_col0" class="data row23 col0" >IFAELC</td>
-      <td id="T_efdd8_row23_col1" class="data row23 col1" >Industry-FA-Electricity</td>
-      <td id="T_efdd8_row23_col2" class="data row23 col2" >PJ</td>
-      <td id="T_efdd8_row23_col3" class="data row23 col3" >NRG</td>
-      <td id="T_efdd8_row23_col4" class="data row23 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row23" class="row_heading level0 row23" >26</th>
+      <td id="T_c01e6_row23_col0" class="data row23 col0" >IFAELC</td>
+      <td id="T_c01e6_row23_col1" class="data row23 col1" >Industry-FA-Electricity</td>
+      <td id="T_c01e6_row23_col2" class="data row23 col2" >PJ</td>
+      <td id="T_c01e6_row23_col3" class="data row23 col3" >NRG</td>
+      <td id="T_c01e6_row23_col4" class="data row23 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row24" class="row_heading level0 row24" >27</th>
-      <td id="T_efdd8_row24_col0" class="data row24 col0" >IFBELC</td>
-      <td id="T_efdd8_row24_col1" class="data row24 col1" >Industry-FB-Electricity</td>
-      <td id="T_efdd8_row24_col2" class="data row24 col2" >PJ</td>
-      <td id="T_efdd8_row24_col3" class="data row24 col3" >NRG</td>
-      <td id="T_efdd8_row24_col4" class="data row24 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row24" class="row_heading level0 row24" >27</th>
+      <td id="T_c01e6_row24_col0" class="data row24 col0" >IFBELC</td>
+      <td id="T_c01e6_row24_col1" class="data row24 col1" >Industry-FB-Electricity</td>
+      <td id="T_c01e6_row24_col2" class="data row24 col2" >PJ</td>
+      <td id="T_c01e6_row24_col3" class="data row24 col3" >NRG</td>
+      <td id="T_c01e6_row24_col4" class="data row24 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row25" class="row_heading level0 row25" >28</th>
-      <td id="T_efdd8_row25_col0" class="data row25 col0" >IISELC</td>
-      <td id="T_efdd8_row25_col1" class="data row25 col1" >Industry-IS-Electricity</td>
-      <td id="T_efdd8_row25_col2" class="data row25 col2" >PJ</td>
-      <td id="T_efdd8_row25_col3" class="data row25 col3" >NRG</td>
-      <td id="T_efdd8_row25_col4" class="data row25 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row25" class="row_heading level0 row25" >28</th>
+      <td id="T_c01e6_row25_col0" class="data row25 col0" >IISELC</td>
+      <td id="T_c01e6_row25_col1" class="data row25 col1" >Industry-IS-Electricity</td>
+      <td id="T_c01e6_row25_col2" class="data row25 col2" >PJ</td>
+      <td id="T_c01e6_row25_col3" class="data row25 col3" >NRG</td>
+      <td id="T_c01e6_row25_col4" class="data row25 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row26" class="row_heading level0 row26" >29</th>
-      <td id="T_efdd8_row26_col0" class="data row26 col0" >IISHHELC</td>
-      <td id="T_efdd8_row26_col1" class="data row26 col1" >Industry-IS-Electricity for HDRI</td>
-      <td id="T_efdd8_row26_col2" class="data row26 col2" >PJ</td>
-      <td id="T_efdd8_row26_col3" class="data row26 col3" >NRG</td>
-      <td id="T_efdd8_row26_col4" class="data row26 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row26" class="row_heading level0 row26" >29</th>
+      <td id="T_c01e6_row26_col0" class="data row26 col0" >IISHHELC</td>
+      <td id="T_c01e6_row26_col1" class="data row26 col1" >Industry-IS-Electricity for HDRI</td>
+      <td id="T_c01e6_row26_col2" class="data row26 col2" >PJ</td>
+      <td id="T_c01e6_row26_col3" class="data row26 col3" >NRG</td>
+      <td id="T_c01e6_row26_col4" class="data row26 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row27" class="row_heading level0 row27" >30</th>
-      <td id="T_efdd8_row27_col0" class="data row27 col0" >IMIELC</td>
-      <td id="T_efdd8_row27_col1" class="data row27 col1" >Industry-MI-Electricity</td>
-      <td id="T_efdd8_row27_col2" class="data row27 col2" >PJ</td>
-      <td id="T_efdd8_row27_col3" class="data row27 col3" >NRG</td>
-      <td id="T_efdd8_row27_col4" class="data row27 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row27" class="row_heading level0 row27" >30</th>
+      <td id="T_c01e6_row27_col0" class="data row27 col0" >IMIELC</td>
+      <td id="T_c01e6_row27_col1" class="data row27 col1" >Industry-MI-Electricity</td>
+      <td id="T_c01e6_row27_col2" class="data row27 col2" >PJ</td>
+      <td id="T_c01e6_row27_col3" class="data row27 col3" >NRG</td>
+      <td id="T_c01e6_row27_col4" class="data row27 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row28" class="row_heading level0 row28" >31</th>
-      <td id="T_efdd8_row28_col0" class="data row28 col0" >INFELC</td>
-      <td id="T_efdd8_row28_col1" class="data row28 col1" >Industry-NF-Electricity</td>
-      <td id="T_efdd8_row28_col2" class="data row28 col2" >PJ</td>
-      <td id="T_efdd8_row28_col3" class="data row28 col3" >NRG</td>
-      <td id="T_efdd8_row28_col4" class="data row28 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row28" class="row_heading level0 row28" >31</th>
+      <td id="T_c01e6_row28_col0" class="data row28 col0" >INFELC</td>
+      <td id="T_c01e6_row28_col1" class="data row28 col1" >Industry-NF-Electricity</td>
+      <td id="T_c01e6_row28_col2" class="data row28 col2" >PJ</td>
+      <td id="T_c01e6_row28_col3" class="data row28 col3" >NRG</td>
+      <td id="T_c01e6_row28_col4" class="data row28 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row29" class="row_heading level0 row29" >32</th>
-      <td id="T_efdd8_row29_col0" class="data row29 col0" >INMELC</td>
-      <td id="T_efdd8_row29_col1" class="data row29 col1" >Industry-NM-Electricity</td>
-      <td id="T_efdd8_row29_col2" class="data row29 col2" >PJ</td>
-      <td id="T_efdd8_row29_col3" class="data row29 col3" >NRG</td>
-      <td id="T_efdd8_row29_col4" class="data row29 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row29" class="row_heading level0 row29" >32</th>
+      <td id="T_c01e6_row29_col0" class="data row29 col0" >INMELC</td>
+      <td id="T_c01e6_row29_col1" class="data row29 col1" >Industry-NM-Electricity</td>
+      <td id="T_c01e6_row29_col2" class="data row29 col2" >PJ</td>
+      <td id="T_c01e6_row29_col3" class="data row29 col3" >NRG</td>
+      <td id="T_c01e6_row29_col4" class="data row29 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row30" class="row_heading level0 row30" >33</th>
-      <td id="T_efdd8_row30_col0" class="data row30 col0" >IOTELC</td>
-      <td id="T_efdd8_row30_col1" class="data row30 col1" >Industry-OT-Electricity</td>
-      <td id="T_efdd8_row30_col2" class="data row30 col2" >PJ</td>
-      <td id="T_efdd8_row30_col3" class="data row30 col3" >NRG</td>
-      <td id="T_efdd8_row30_col4" class="data row30 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row30" class="row_heading level0 row30" >33</th>
+      <td id="T_c01e6_row30_col0" class="data row30 col0" >IOTELC</td>
+      <td id="T_c01e6_row30_col1" class="data row30 col1" >Industry-OT-Electricity</td>
+      <td id="T_c01e6_row30_col2" class="data row30 col2" >PJ</td>
+      <td id="T_c01e6_row30_col3" class="data row30 col3" >NRG</td>
+      <td id="T_c01e6_row30_col4" class="data row30 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row31" class="row_heading level0 row31" >34</th>
-      <td id="T_efdd8_row31_col0" class="data row31 col0" >IPPELC</td>
-      <td id="T_efdd8_row31_col1" class="data row31 col1" >Industry-PP-Electricity</td>
-      <td id="T_efdd8_row31_col2" class="data row31 col2" >PJ</td>
-      <td id="T_efdd8_row31_col3" class="data row31 col3" >NRG</td>
-      <td id="T_efdd8_row31_col4" class="data row31 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row31" class="row_heading level0 row31" >34</th>
+      <td id="T_c01e6_row31_col0" class="data row31 col0" >IPPELC</td>
+      <td id="T_c01e6_row31_col1" class="data row31 col1" >Industry-PP-Electricity</td>
+      <td id="T_c01e6_row31_col2" class="data row31 col2" >PJ</td>
+      <td id="T_c01e6_row31_col3" class="data row31 col3" >NRG</td>
+      <td id="T_c01e6_row31_col4" class="data row31 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row32" class="row_heading level0 row32" >35</th>
-      <td id="T_efdd8_row32_col0" class="data row32 col0" >ICPELC</td>
-      <td id="T_efdd8_row32_col1" class="data row32 col1" >Chemicals Electricity</td>
-      <td id="T_efdd8_row32_col2" class="data row32 col2" >PJ</td>
-      <td id="T_efdd8_row32_col3" class="data row32 col3" >NRG</td>
-      <td id="T_efdd8_row32_col4" class="data row32 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row32" class="row_heading level0 row32" >35</th>
+      <td id="T_c01e6_row32_col0" class="data row32 col0" >ICPELC</td>
+      <td id="T_c01e6_row32_col1" class="data row32 col1" >Chemicals Electricity</td>
+      <td id="T_c01e6_row32_col2" class="data row32 col2" >PJ</td>
+      <td id="T_c01e6_row32_col3" class="data row32 col3" >NRG</td>
+      <td id="T_c01e6_row32_col4" class="data row32 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row33" class="row_heading level0 row33" >36</th>
-      <td id="T_efdd8_row33_col0" class="data row33 col0" >RESELC</td>
-      <td id="T_efdd8_row33_col1" class="data row33 col1" >Residential Electricity</td>
-      <td id="T_efdd8_row33_col2" class="data row33 col2" >PJ</td>
-      <td id="T_efdd8_row33_col3" class="data row33 col3" >NRG</td>
-      <td id="T_efdd8_row33_col4" class="data row33 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row33" class="row_heading level0 row33" >36</th>
+      <td id="T_c01e6_row33_col0" class="data row33 col0" >RESELC</td>
+      <td id="T_c01e6_row33_col1" class="data row33 col1" >Residential Electricity</td>
+      <td id="T_c01e6_row33_col2" class="data row33 col2" >PJ</td>
+      <td id="T_c01e6_row33_col3" class="data row33 col3" >NRG</td>
+      <td id="T_c01e6_row33_col4" class="data row33 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row34" class="row_heading level0 row34" >37</th>
-      <td id="T_efdd8_row34_col0" class="data row34 col0" >INDELC</td>
-      <td id="T_efdd8_row34_col1" class="data row34 col1" >Industry Electricity</td>
-      <td id="T_efdd8_row34_col2" class="data row34 col2" >PJ</td>
-      <td id="T_efdd8_row34_col3" class="data row34 col3" >NRG</td>
-      <td id="T_efdd8_row34_col4" class="data row34 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row34" class="row_heading level0 row34" >37</th>
+      <td id="T_c01e6_row34_col0" class="data row34 col0" >INDELC</td>
+      <td id="T_c01e6_row34_col1" class="data row34 col1" >Industry Electricity</td>
+      <td id="T_c01e6_row34_col2" class="data row34 col2" >PJ</td>
+      <td id="T_c01e6_row34_col3" class="data row34 col3" >NRG</td>
+      <td id="T_c01e6_row34_col4" class="data row34 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row35" class="row_heading level0 row35" >38</th>
-      <td id="T_efdd8_row35_col0" class="data row35 col0" >COMELC</td>
-      <td id="T_efdd8_row35_col1" class="data row35 col1" >Commerce Electricity</td>
-      <td id="T_efdd8_row35_col2" class="data row35 col2" >PJ</td>
-      <td id="T_efdd8_row35_col3" class="data row35 col3" >NRG</td>
-      <td id="T_efdd8_row35_col4" class="data row35 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row35" class="row_heading level0 row35" >38</th>
+      <td id="T_c01e6_row35_col0" class="data row35 col0" >COMELC</td>
+      <td id="T_c01e6_row35_col1" class="data row35 col1" >Commerce Electricity</td>
+      <td id="T_c01e6_row35_col2" class="data row35 col2" >PJ</td>
+      <td id="T_c01e6_row35_col3" class="data row35 col3" >NRG</td>
+      <td id="T_c01e6_row35_col4" class="data row35 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row36" class="row_heading level0 row36" >39</th>
-      <td id="T_efdd8_row36_col0" class="data row36 col0" >UPSELC</td>
-      <td id="T_efdd8_row36_col1" class="data row36 col1" >Supply Electricity</td>
-      <td id="T_efdd8_row36_col2" class="data row36 col2" >PJ</td>
-      <td id="T_efdd8_row36_col3" class="data row36 col3" >NRG</td>
-      <td id="T_efdd8_row36_col4" class="data row36 col4" >DAYNITE</td>
+      <th id="T_c01e6_level0_row36" class="row_heading level0 row36" >39</th>
+      <td id="T_c01e6_row36_col0" class="data row36 col0" >UPSELC</td>
+      <td id="T_c01e6_row36_col1" class="data row36 col1" >Supply Electricity</td>
+      <td id="T_c01e6_row36_col2" class="data row36 col2" >PJ</td>
+      <td id="T_c01e6_row36_col3" class="data row36 col3" >NRG</td>
+      <td id="T_c01e6_row36_col4" class="data row36 col4" >DAYNITE</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row37" class="row_heading level0 row37" >40</th>
-      <td id="T_efdd8_row37_col0" class="data row37 col0" >PWROHF</td>
-      <td id="T_efdd8_row37_col1" class="data row37 col1" >Power Oil HFO</td>
-      <td id="T_efdd8_row37_col2" class="data row37 col2" >PJ</td>
-      <td id="T_efdd8_row37_col3" class="data row37 col3" >NRG</td>
-      <td id="T_efdd8_row37_col4" class="data row37 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row37" class="row_heading level0 row37" >40</th>
+      <td id="T_c01e6_row37_col0" class="data row37 col0" >PWROHF</td>
+      <td id="T_c01e6_row37_col1" class="data row37 col1" >Power Oil HFO</td>
+      <td id="T_c01e6_row37_col2" class="data row37 col2" >PJ</td>
+      <td id="T_c01e6_row37_col3" class="data row37 col3" >NRG</td>
+      <td id="T_c01e6_row37_col4" class="data row37 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row38" class="row_heading level0 row38" >41</th>
-      <td id="T_efdd8_row38_col0" class="data row38 col0" >PWROKE</td>
-      <td id="T_efdd8_row38_col1" class="data row38 col1" >Power Oil Kerosene</td>
-      <td id="T_efdd8_row38_col2" class="data row38 col2" >PJ</td>
-      <td id="T_efdd8_row38_col3" class="data row38 col3" >NRG</td>
-      <td id="T_efdd8_row38_col4" class="data row38 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row38" class="row_heading level0 row38" >41</th>
+      <td id="T_c01e6_row38_col0" class="data row38 col0" >PWROKE</td>
+      <td id="T_c01e6_row38_col1" class="data row38 col1" >Power Oil Kerosene</td>
+      <td id="T_c01e6_row38_col2" class="data row38 col2" >PJ</td>
+      <td id="T_c01e6_row38_col3" class="data row38 col3" >NRG</td>
+      <td id="T_c01e6_row38_col4" class="data row38 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row39" class="row_heading level0 row39" >42</th>
-      <td id="T_efdd8_row39_col0" class="data row39 col0" >PWRODS</td>
-      <td id="T_efdd8_row39_col1" class="data row39 col1" >Power Sector Diesel</td>
-      <td id="T_efdd8_row39_col2" class="data row39 col2" >PJ</td>
-      <td id="T_efdd8_row39_col3" class="data row39 col3" >NRG</td>
-      <td id="T_efdd8_row39_col4" class="data row39 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row39" class="row_heading level0 row39" >42</th>
+      <td id="T_c01e6_row39_col0" class="data row39 col0" >PWRODS</td>
+      <td id="T_c01e6_row39_col1" class="data row39 col1" >Power Sector Diesel</td>
+      <td id="T_c01e6_row39_col2" class="data row39 col2" >PJ</td>
+      <td id="T_c01e6_row39_col3" class="data row39 col3" >NRG</td>
+      <td id="T_c01e6_row39_col4" class="data row39 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row40" class="row_heading level0 row40" >43</th>
-      <td id="T_efdd8_row40_col0" class="data row40 col0" >PWRGIC</td>
-      <td id="T_efdd8_row40_col1" class="data row40 col1" >Power Sector Coastal Gas</td>
-      <td id="T_efdd8_row40_col2" class="data row40 col2" >PJ</td>
-      <td id="T_efdd8_row40_col3" class="data row40 col3" >NRG</td>
-      <td id="T_efdd8_row40_col4" class="data row40 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row40" class="row_heading level0 row40" >43</th>
+      <td id="T_c01e6_row40_col0" class="data row40 col0" >PWRGIC</td>
+      <td id="T_c01e6_row40_col1" class="data row40 col1" >Power Sector Coastal Gas</td>
+      <td id="T_c01e6_row40_col2" class="data row40 col2" >PJ</td>
+      <td id="T_c01e6_row40_col3" class="data row40 col3" >NRG</td>
+      <td id="T_c01e6_row40_col4" class="data row40 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row41" class="row_heading level0 row41" >44</th>
-      <td id="T_efdd8_row41_col0" class="data row41 col0" >PWRGAS</td>
-      <td id="T_efdd8_row41_col1" class="data row41 col1" >Power Sector Inland Gas</td>
-      <td id="T_efdd8_row41_col2" class="data row41 col2" >PJ</td>
-      <td id="T_efdd8_row41_col3" class="data row41 col3" >NRG</td>
-      <td id="T_efdd8_row41_col4" class="data row41 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row41" class="row_heading level0 row41" >44</th>
+      <td id="T_c01e6_row41_col0" class="data row41 col0" >PWRGAS</td>
+      <td id="T_c01e6_row41_col1" class="data row41 col1" >Power Sector Inland Gas</td>
+      <td id="T_c01e6_row41_col2" class="data row41 col2" >PJ</td>
+      <td id="T_c01e6_row41_col3" class="data row41 col3" >NRG</td>
+      <td id="T_c01e6_row41_col4" class="data row41 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row42" class="row_heading level0 row42" >45</th>
-      <td id="T_efdd8_row42_col0" class="data row42 col0" >PWRHGN</td>
-      <td id="T_efdd8_row42_col1" class="data row42 col1" >Power Sector Hydrogen</td>
-      <td id="T_efdd8_row42_col2" class="data row42 col2" >PJ</td>
-      <td id="T_efdd8_row42_col3" class="data row42 col3" >NRG</td>
-      <td id="T_efdd8_row42_col4" class="data row42 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row42" class="row_heading level0 row42" >45</th>
+      <td id="T_c01e6_row42_col0" class="data row42 col0" >PWRHGN</td>
+      <td id="T_c01e6_row42_col1" class="data row42 col1" >Power Sector Hydrogen</td>
+      <td id="T_c01e6_row42_col2" class="data row42 col2" >PJ</td>
+      <td id="T_c01e6_row42_col3" class="data row42 col3" >NRG</td>
+      <td id="T_c01e6_row42_col4" class="data row42 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row43" class="row_heading level0 row43" >46</th>
-      <td id="T_efdd8_row43_col0" class="data row43 col0" >PWRHYD</td>
-      <td id="T_efdd8_row43_col1" class="data row43 col1" >Hydro Resource</td>
-      <td id="T_efdd8_row43_col2" class="data row43 col2" >PJ</td>
-      <td id="T_efdd8_row43_col3" class="data row43 col3" >NRG</td>
-      <td id="T_efdd8_row43_col4" class="data row43 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row43" class="row_heading level0 row43" >46</th>
+      <td id="T_c01e6_row43_col0" class="data row43 col0" >PWRHYD</td>
+      <td id="T_c01e6_row43_col1" class="data row43 col1" >Hydro Resource</td>
+      <td id="T_c01e6_row43_col2" class="data row43 col2" >PJ</td>
+      <td id="T_c01e6_row43_col3" class="data row43 col3" >NRG</td>
+      <td id="T_c01e6_row43_col4" class="data row43 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row44" class="row_heading level0 row44" >47</th>
-      <td id="T_efdd8_row44_col0" class="data row44 col0" >PWRSOL</td>
-      <td id="T_efdd8_row44_col1" class="data row44 col1" >Solar Resource</td>
-      <td id="T_efdd8_row44_col2" class="data row44 col2" >PJ</td>
-      <td id="T_efdd8_row44_col3" class="data row44 col3" >NRG</td>
-      <td id="T_efdd8_row44_col4" class="data row44 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row44" class="row_heading level0 row44" >47</th>
+      <td id="T_c01e6_row44_col0" class="data row44 col0" >PWRSOL</td>
+      <td id="T_c01e6_row44_col1" class="data row44 col1" >Solar Resource</td>
+      <td id="T_c01e6_row44_col2" class="data row44 col2" >PJ</td>
+      <td id="T_c01e6_row44_col3" class="data row44 col3" >NRG</td>
+      <td id="T_c01e6_row44_col4" class="data row44 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row45" class="row_heading level0 row45" >48</th>
-      <td id="T_efdd8_row45_col0" class="data row45 col0" >PWRWND</td>
-      <td id="T_efdd8_row45_col1" class="data row45 col1" >Wind Resource</td>
-      <td id="T_efdd8_row45_col2" class="data row45 col2" >PJ</td>
-      <td id="T_efdd8_row45_col3" class="data row45 col3" >NRG</td>
-      <td id="T_efdd8_row45_col4" class="data row45 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row45" class="row_heading level0 row45" >48</th>
+      <td id="T_c01e6_row45_col0" class="data row45 col0" >PWRWND</td>
+      <td id="T_c01e6_row45_col1" class="data row45 col1" >Wind Resource</td>
+      <td id="T_c01e6_row45_col2" class="data row45 col2" >PJ</td>
+      <td id="T_c01e6_row45_col3" class="data row45 col3" >NRG</td>
+      <td id="T_c01e6_row45_col4" class="data row45 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row46" class="row_heading level0 row46" >49</th>
-      <td id="T_efdd8_row46_col0" class="data row46 col0" >PWRNUC</td>
-      <td id="T_efdd8_row46_col1" class="data row46 col1" >Nuclear Fuel</td>
-      <td id="T_efdd8_row46_col2" class="data row46 col2" >PJ</td>
-      <td id="T_efdd8_row46_col3" class="data row46 col3" >NRG</td>
-      <td id="T_efdd8_row46_col4" class="data row46 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row46" class="row_heading level0 row46" >49</th>
+      <td id="T_c01e6_row46_col0" class="data row46 col0" >PWRNUC</td>
+      <td id="T_c01e6_row46_col1" class="data row46 col1" >Nuclear Fuel</td>
+      <td id="T_c01e6_row46_col2" class="data row46 col2" >PJ</td>
+      <td id="T_c01e6_row46_col3" class="data row46 col3" >NRG</td>
+      <td id="T_c01e6_row46_col4" class="data row46 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row47" class="row_heading level0 row47" >50</th>
-      <td id="T_efdd8_row47_col0" class="data row47 col0" >PWRBIO</td>
-      <td id="T_efdd8_row47_col1" class="data row47 col1" >Biomass Fuel</td>
-      <td id="T_efdd8_row47_col2" class="data row47 col2" >PJ</td>
-      <td id="T_efdd8_row47_col3" class="data row47 col3" >NRG</td>
-      <td id="T_efdd8_row47_col4" class="data row47 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row47" class="row_heading level0 row47" >50</th>
+      <td id="T_c01e6_row47_col0" class="data row47 col0" >PWRBIO</td>
+      <td id="T_c01e6_row47_col1" class="data row47 col1" >Biomass Fuel</td>
+      <td id="T_c01e6_row47_col2" class="data row47 col2" >PJ</td>
+      <td id="T_c01e6_row47_col3" class="data row47 col3" >NRG</td>
+      <td id="T_c01e6_row47_col4" class="data row47 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row48" class="row_heading level0 row48" >51</th>
-      <td id="T_efdd8_row48_col0" class="data row48 col0" >PWRBIG</td>
-      <td id="T_efdd8_row48_col1" class="data row48 col1" >Bagasse Fuel</td>
-      <td id="T_efdd8_row48_col2" class="data row48 col2" >PJ</td>
-      <td id="T_efdd8_row48_col3" class="data row48 col3" >NRG</td>
-      <td id="T_efdd8_row48_col4" class="data row48 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row48" class="row_heading level0 row48" >51</th>
+      <td id="T_c01e6_row48_col0" class="data row48 col0" >PWRBIG</td>
+      <td id="T_c01e6_row48_col1" class="data row48 col1" >Bagasse Fuel</td>
+      <td id="T_c01e6_row48_col2" class="data row48 col2" >PJ</td>
+      <td id="T_c01e6_row48_col3" class="data row48 col3" >NRG</td>
+      <td id="T_c01e6_row48_col4" class="data row48 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row49" class="row_heading level0 row49" >52</th>
-      <td id="T_efdd8_row49_col0" class="data row49 col0" >PWRCLE</td>
-      <td id="T_efdd8_row49_col1" class="data row49 col1" >Power Sector Load Grade Coal</td>
-      <td id="T_efdd8_row49_col2" class="data row49 col2" >PJ</td>
-      <td id="T_efdd8_row49_col3" class="data row49 col3" >NRG</td>
-      <td id="T_efdd8_row49_col4" class="data row49 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row49" class="row_heading level0 row49" >52</th>
+      <td id="T_c01e6_row49_col0" class="data row49 col0" >PWRCLE</td>
+      <td id="T_c01e6_row49_col1" class="data row49 col1" >Power Sector Load Grade Coal</td>
+      <td id="T_c01e6_row49_col2" class="data row49 col2" >PJ</td>
+      <td id="T_c01e6_row49_col3" class="data row49 col3" >NRG</td>
+      <td id="T_c01e6_row49_col4" class="data row49 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row50" class="row_heading level0 row50" >53</th>
-      <td id="T_efdd8_row50_col0" class="data row50 col0" >UPSCLE</td>
-      <td id="T_efdd8_row50_col1" class="data row50 col1" >Supply Sector Load Grade Coal</td>
-      <td id="T_efdd8_row50_col2" class="data row50 col2" >PJ</td>
-      <td id="T_efdd8_row50_col3" class="data row50 col3" >NRG</td>
-      <td id="T_efdd8_row50_col4" class="data row50 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row50" class="row_heading level0 row50" >53</th>
+      <td id="T_c01e6_row50_col0" class="data row50 col0" >UPSCLE</td>
+      <td id="T_c01e6_row50_col1" class="data row50 col1" >Supply Sector Load Grade Coal</td>
+      <td id="T_c01e6_row50_col2" class="data row50 col2" >PJ</td>
+      <td id="T_c01e6_row50_col3" class="data row50 col3" >NRG</td>
+      <td id="T_c01e6_row50_col4" class="data row50 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row51" class="row_heading level0 row51" >54</th>
-      <td id="T_efdd8_row51_col0" class="data row51 col0" >INDCLE</td>
-      <td id="T_efdd8_row51_col1" class="data row51 col1" >Industry Sector Load Grade Coal</td>
-      <td id="T_efdd8_row51_col2" class="data row51 col2" >PJ</td>
-      <td id="T_efdd8_row51_col3" class="data row51 col3" >NRG</td>
-      <td id="T_efdd8_row51_col4" class="data row51 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row51" class="row_heading level0 row51" >54</th>
+      <td id="T_c01e6_row51_col0" class="data row51 col0" >INDCLE</td>
+      <td id="T_c01e6_row51_col1" class="data row51 col1" >Industry Sector Load Grade Coal</td>
+      <td id="T_c01e6_row51_col2" class="data row51 col2" >PJ</td>
+      <td id="T_c01e6_row51_col3" class="data row51 col3" >NRG</td>
+      <td id="T_c01e6_row51_col4" class="data row51 col4" >ANNUAL</td>
     </tr>
     <tr>
-      <th id="T_efdd8_level0_row52" class="row_heading level0 row52" >55</th>
-      <td id="T_efdd8_row52_col0" class="data row52 col0" >PWRCLD</td>
-      <td id="T_efdd8_row52_col1" class="data row52 col1" >Power Sector Discard Coal</td>
-      <td id="T_efdd8_row52_col2" class="data row52 col2" >PJ</td>
-      <td id="T_efdd8_row52_col3" class="data row52 col3" >NRG</td>
-      <td id="T_efdd8_row52_col4" class="data row52 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row53" class="row_heading level0 row53" >56</th>
-      <td id="T_efdd8_row53_col0" class="data row53 col0" >PWRENV</td>
-      <td id="T_efdd8_row53_col1" class="data row53 col1" >For tracking environmental Levy</td>
-      <td id="T_efdd8_row53_col2" class="data row53 col2" >KT</td>
-      <td id="T_efdd8_row53_col3" class="data row53 col3" >ENV</td>
-      <td id="T_efdd8_row53_col4" class="data row53 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row54" class="row_heading level0 row54" >57</th>
-      <td id="T_efdd8_row54_col0" class="data row54 col0" >PWRWAT</td>
-      <td id="T_efdd8_row54_col1" class="data row54 col1" >Water for Power Sector</td>
-      <td id="T_efdd8_row54_col2" class="data row54 col2" >PJ</td>
-      <td id="T_efdd8_row54_col3" class="data row54 col3" >NRG</td>
-      <td id="T_efdd8_row54_col4" class="data row54 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row55" class="row_heading level0 row55" >58</th>
-      <td id="T_efdd8_row55_col0" class="data row55 col0" >PWRSOXS</td>
-      <td id="T_efdd8_row55_col1" class="data row55 col1" >Power Sector Sulphur gases South Africa</td>
-      <td id="T_efdd8_row55_col2" class="data row55 col2" >KT</td>
-      <td id="T_efdd8_row55_col3" class="data row55 col3" >ENV</td>
-      <td id="T_efdd8_row55_col4" class="data row55 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row56" class="row_heading level0 row56" >59</th>
-      <td id="T_efdd8_row56_col0" class="data row56 col0" >PWRNOXS</td>
-      <td id="T_efdd8_row56_col1" class="data row56 col1" >Power Sector Nitrogen gases South Africa</td>
-      <td id="T_efdd8_row56_col2" class="data row56 col2" >KT</td>
-      <td id="T_efdd8_row56_col3" class="data row56 col3" >ENV</td>
-      <td id="T_efdd8_row56_col4" class="data row56 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row57" class="row_heading level0 row57" >60</th>
-      <td id="T_efdd8_row57_col0" class="data row57 col0" >PWRPM10</td>
-      <td id="T_efdd8_row57_col1" class="data row57 col1" >Power Sector Particulate Emissions</td>
-      <td id="T_efdd8_row57_col2" class="data row57 col2" >KT</td>
-      <td id="T_efdd8_row57_col3" class="data row57 col3" >ENV</td>
-      <td id="T_efdd8_row57_col4" class="data row57 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row58" class="row_heading level0 row58" >61</th>
-      <td id="T_efdd8_row58_col0" class="data row58 col0" >PWRCO2S</td>
-      <td id="T_efdd8_row58_col1" class="data row58 col1" >Power Sector Carbon Dioxide South Africa</td>
-      <td id="T_efdd8_row58_col2" class="data row58 col2" >KT</td>
-      <td id="T_efdd8_row58_col3" class="data row58 col3" >ENV</td>
-      <td id="T_efdd8_row58_col4" class="data row58 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row59" class="row_heading level0 row59" >62</th>
-      <td id="T_efdd8_row59_col0" class="data row59 col0" >PWRCH4S</td>
-      <td id="T_efdd8_row59_col1" class="data row59 col1" >Power Sector Methane South Africa</td>
-      <td id="T_efdd8_row59_col2" class="data row59 col2" >KT</td>
-      <td id="T_efdd8_row59_col3" class="data row59 col3" >ENV</td>
-      <td id="T_efdd8_row59_col4" class="data row59 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row60" class="row_heading level0 row60" >63</th>
-      <td id="T_efdd8_row60_col0" class="data row60 col0" >PWRN2OS</td>
-      <td id="T_efdd8_row60_col1" class="data row60 col1" >Power Sector Nitrous Oxide Emissions</td>
-      <td id="T_efdd8_row60_col2" class="data row60 col2" >KT</td>
-      <td id="T_efdd8_row60_col3" class="data row60 col3" >ENV</td>
-      <td id="T_efdd8_row60_col4" class="data row60 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row61" class="row_heading level0 row61" >64</th>
-      <td id="T_efdd8_row61_col0" class="data row61 col0" >PWRCMOX</td>
-      <td id="T_efdd8_row61_col1" class="data row61 col1" >Power Sector CMOX South Africa</td>
-      <td id="T_efdd8_row61_col2" class="data row61 col2" >KT</td>
-      <td id="T_efdd8_row61_col3" class="data row61 col3" >ENV</td>
-      <td id="T_efdd8_row61_col4" class="data row61 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row62" class="row_heading level0 row62" >65</th>
-      <td id="T_efdd8_row62_col0" class="data row62 col0" >PWRNMVS</td>
-      <td id="T_efdd8_row62_col1" class="data row62 col1" >Power Sector NMVS Emissions</td>
-      <td id="T_efdd8_row62_col2" class="data row62 col2" >KT</td>
-      <td id="T_efdd8_row62_col3" class="data row62 col3" >ENV</td>
-      <td id="T_efdd8_row62_col4" class="data row62 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row63" class="row_heading level0 row63" >66</th>
-      <td id="T_efdd8_row63_col0" class="data row63 col0" >CO2SF</td>
-      <td id="T_efdd8_row63_col1" class="data row63 col1" >Fugitive Emissions CO2</td>
-      <td id="T_efdd8_row63_col2" class="data row63 col2" >KT</td>
-      <td id="T_efdd8_row63_col3" class="data row63 col3" >ENV</td>
-      <td id="T_efdd8_row63_col4" class="data row63 col4" >ANNUAL</td>
-    </tr>
-    <tr>
-      <th id="T_efdd8_level0_row64" class="row_heading level0 row64" >67</th>
-      <td id="T_efdd8_row64_col0" class="data row64 col0" >CH4SF</td>
-      <td id="T_efdd8_row64_col1" class="data row64 col1" >Fugitive Emissions CH4</td>
-      <td id="T_efdd8_row64_col2" class="data row64 col2" >KT</td>
-      <td id="T_efdd8_row64_col3" class="data row64 col3" >ENV</td>
-      <td id="T_efdd8_row64_col4" class="data row64 col4" >ANNUAL</td>
+      <th id="T_c01e6_level0_row52" class="row_heading level0 row52" >55</th>
+      <td id="T_c01e6_row52_col0" class="data row52 col0" >PWRCLD</td>
+      <td id="T_c01e6_row52_col1" class="data row52 col1" >Power Sector Discard Coal</td>
+      <td id="T_c01e6_row52_col2" class="data row52 col2" >PJ</td>
+      <td id="T_c01e6_row52_col3" class="data row52 col3" >NRG</td>
+      <td id="T_c01e6_row52_col4" class="data row52 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row53" class="row_heading level0 row53" >56</th>
+      <td id="T_c01e6_row53_col0" class="data row53 col0" >PWRENV</td>
+      <td id="T_c01e6_row53_col1" class="data row53 col1" >For tracking environmental Levy</td>
+      <td id="T_c01e6_row53_col2" class="data row53 col2" >KT</td>
+      <td id="T_c01e6_row53_col3" class="data row53 col3" >ENV</td>
+      <td id="T_c01e6_row53_col4" class="data row53 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row54" class="row_heading level0 row54" >57</th>
+      <td id="T_c01e6_row54_col0" class="data row54 col0" >PWRWAT</td>
+      <td id="T_c01e6_row54_col1" class="data row54 col1" >Water for Power Sector</td>
+      <td id="T_c01e6_row54_col2" class="data row54 col2" >PJ</td>
+      <td id="T_c01e6_row54_col3" class="data row54 col3" >NRG</td>
+      <td id="T_c01e6_row54_col4" class="data row54 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row55" class="row_heading level0 row55" >58</th>
+      <td id="T_c01e6_row55_col0" class="data row55 col0" >PWRSOXS</td>
+      <td id="T_c01e6_row55_col1" class="data row55 col1" >Power Sector Sulphur gases South Africa</td>
+      <td id="T_c01e6_row55_col2" class="data row55 col2" >KT</td>
+      <td id="T_c01e6_row55_col3" class="data row55 col3" >ENV</td>
+      <td id="T_c01e6_row55_col4" class="data row55 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row56" class="row_heading level0 row56" >59</th>
+      <td id="T_c01e6_row56_col0" class="data row56 col0" >PWRNOXS</td>
+      <td id="T_c01e6_row56_col1" class="data row56 col1" >Power Sector Nitrogen gases South Africa</td>
+      <td id="T_c01e6_row56_col2" class="data row56 col2" >KT</td>
+      <td id="T_c01e6_row56_col3" class="data row56 col3" >ENV</td>
+      <td id="T_c01e6_row56_col4" class="data row56 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row57" class="row_heading level0 row57" >60</th>
+      <td id="T_c01e6_row57_col0" class="data row57 col0" >PWRPM10</td>
+      <td id="T_c01e6_row57_col1" class="data row57 col1" >Power Sector Particulate Emissions</td>
+      <td id="T_c01e6_row57_col2" class="data row57 col2" >KT</td>
+      <td id="T_c01e6_row57_col3" class="data row57 col3" >ENV</td>
+      <td id="T_c01e6_row57_col4" class="data row57 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row58" class="row_heading level0 row58" >61</th>
+      <td id="T_c01e6_row58_col0" class="data row58 col0" >PWRCO2S</td>
+      <td id="T_c01e6_row58_col1" class="data row58 col1" >Power Sector Carbon Dioxide South Africa</td>
+      <td id="T_c01e6_row58_col2" class="data row58 col2" >KT</td>
+      <td id="T_c01e6_row58_col3" class="data row58 col3" >ENV</td>
+      <td id="T_c01e6_row58_col4" class="data row58 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row59" class="row_heading level0 row59" >62</th>
+      <td id="T_c01e6_row59_col0" class="data row59 col0" >PWRCH4S</td>
+      <td id="T_c01e6_row59_col1" class="data row59 col1" >Power Sector Methane South Africa</td>
+      <td id="T_c01e6_row59_col2" class="data row59 col2" >KT</td>
+      <td id="T_c01e6_row59_col3" class="data row59 col3" >ENV</td>
+      <td id="T_c01e6_row59_col4" class="data row59 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row60" class="row_heading level0 row60" >63</th>
+      <td id="T_c01e6_row60_col0" class="data row60 col0" >PWRN2OS</td>
+      <td id="T_c01e6_row60_col1" class="data row60 col1" >Power Sector Nitrous Oxide Emissions</td>
+      <td id="T_c01e6_row60_col2" class="data row60 col2" >KT</td>
+      <td id="T_c01e6_row60_col3" class="data row60 col3" >ENV</td>
+      <td id="T_c01e6_row60_col4" class="data row60 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row61" class="row_heading level0 row61" >64</th>
+      <td id="T_c01e6_row61_col0" class="data row61 col0" >PWRCMOX</td>
+      <td id="T_c01e6_row61_col1" class="data row61 col1" >Power Sector CMOX South Africa</td>
+      <td id="T_c01e6_row61_col2" class="data row61 col2" >KT</td>
+      <td id="T_c01e6_row61_col3" class="data row61 col3" >ENV</td>
+      <td id="T_c01e6_row61_col4" class="data row61 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row62" class="row_heading level0 row62" >65</th>
+      <td id="T_c01e6_row62_col0" class="data row62 col0" >PWRNMVS</td>
+      <td id="T_c01e6_row62_col1" class="data row62 col1" >Power Sector NMVS Emissions</td>
+      <td id="T_c01e6_row62_col2" class="data row62 col2" >KT</td>
+      <td id="T_c01e6_row62_col3" class="data row62 col3" >ENV</td>
+      <td id="T_c01e6_row62_col4" class="data row62 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row63" class="row_heading level0 row63" >66</th>
+      <td id="T_c01e6_row63_col0" class="data row63 col0" >CO2SF</td>
+      <td id="T_c01e6_row63_col1" class="data row63 col1" >Fugitive Emissions CO2</td>
+      <td id="T_c01e6_row63_col2" class="data row63 col2" >KT</td>
+      <td id="T_c01e6_row63_col3" class="data row63 col3" >ENV</td>
+      <td id="T_c01e6_row63_col4" class="data row63 col4" >ANNUAL</td>
+    </tr>
+    <tr>
+      <th id="T_c01e6_level0_row64" class="row_heading level0 row64" >67</th>
+      <td id="T_c01e6_row64_col0" class="data row64 col0" >CH4SF</td>
+      <td id="T_c01e6_row64_col1" class="data row64 col1" >Fugitive Emissions CH4</td>
+      <td id="T_c01e6_row64_col2" class="data row64 col2" >KT</td>
+      <td id="T_c01e6_row64_col3" class="data row64 col3" >ENV</td>
+      <td id="T_c01e6_row64_col4" class="data row64 col4" >ANNUAL</td>
     </tr>
   </tbody>
 </table>
