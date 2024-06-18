@@ -4,15 +4,14 @@
 format: jb-book
 root: intro
 chapters:
-- file: 00Abreviations
-- file: 02SATIM Model Structure
-- file: 03eSAGE Model Structure
-- file: 04Model Linkage
-- file: 05Data_Inputs
-- file: 06Scenarios
-- file: 07Data tables
+- file: 00Acknowledgements
+- file: 01Introduction
+- file: 02SATIMGE
+- file: 03Energydemand
+- file: 04EnergySupply
+- file: 05Crosscuttingindustries
+- file: 06Scenariodevelopment
 - file: 99refs
-- file: 9999Acknowledgements
 - file: Annex 1 Techs
 - file: Annex 2 Fuels
 - file: markdown
