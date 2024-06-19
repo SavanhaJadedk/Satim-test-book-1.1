@@ -1,0 +1,677 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3 Energy demand &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03Energydemand';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4 Energy supply" href="04EnergySupply.html" />
+    <link rel="prev" title="2 Long-term energy systems modelling – SATIMGE" href="02SATIMGE.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the read-the-docs for the SATIM-eSAGE linked modelling framework.
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05Data_Inputs.html">5. Data Inputs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07Data%20tables.html">7. SATIM Energy Technology Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99refs.html">References</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Annex%201%20Techs.html">Annex 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annex%202%20Fuels.html">Annex 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F03Energydemand.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03Energydemand.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3 Energy demand</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residential-buildings">3.1 Residential buildings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commercial-buildings">3.2 Commercial Buildings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#industry">3.3 Industry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transport">3.4 Transport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agriculture">3.5 Agriculture</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="energy-demand">
+<h1>3 Energy demand<a class="headerlink" href="#energy-demand" title="Link to this heading">#</a></h1>
+<p>This section provides an overview of the major energy demand sectors of the South African economy, in terms of how they are modelled and analysed in SATIM. The five major demand sectors are:</p>
+<ul class="simple">
+<li><p>Residential</p></li>
+<li><p>Commercial</p></li>
+<li><p>Industry</p></li>
+<li><p>Transport</p></li>
+<li><p>Agriculture</p></li>
+</ul>
+<p>Within each sector, energy demand is expressed bottom-up by technology or fuel grouping, with sectors disaggregated into end-uses at technology level, depending on data availability. Growth and shifts in energy demand, including fuel switching and efficiency improvements, form the key building-block for future energy projections within the IEP framework.</p>
+<section id="residential-buildings">
+<h2>3.1 Residential buildings<a class="headerlink" href="#residential-buildings" title="Link to this heading">#</a></h2>
+<p><strong>The Residential sector in SATIM is structured to capture changes in fuel and technology use and energy service demands that follow rising income levels</strong>.</p>
+<p>There are three income groups represented in SATIM:</p>
+<ul class="simple">
+<li><p>Low income, which represents 45% of the population in 2017</p></li>
+<li><p>Middle income (31% of the population)</p></li>
+<li><p>High income (24% of the population)</p></li>
+</ul>
+<p>Each income group is further disaggregated into a demand for energy services capturing energy consumption for lighting, cooking, space heating, refrigeration and a combination of other (mostly electrical) appliances, as shown in Table 1 (which also shows the drivers of household growth, energy service demands, fuel use and appliance ownership captured in the model). Each service demand is also characterized by a particular seasonal/diurnal profile.</p>
+<p>Table 1: Modelling structure and disaggregation for the residential sector in SATIM</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Disaggregation level</p></th>
+<th class="head"><p>Drivers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Households: Low, Middle and High income groups</p></td>
+<td><p>Population, household size, GDP</p></td>
+</tr>
+<tr class="row-odd"><td><p>Energy Service Demands: Lighting, cooking, water heating, space heating and cooling, Refrigeration, Other</p></td>
+<td><p>Household income, electrification,<br><br>Policies and regulations such as building standards<br><br>Behaviour change</p></td>
+</tr>
+<tr class="row-even"><td><p>Fuels: Wood, coal, paraffin, gas, electricity<br><br>Appliances: (televisions, washing machines, dish washers, etc). The energy intensity and efficiency of a core group of appliances is captured individually and represented as an “average” in the model under “other”.</p></td>
+<td><p>Household income, electrification,<br><br>Policies and regulations such as fuel subsidies, appliance standards</p></td>
+</tr>
+</tbody>
+</table>
+<p>The classification of households into income groups and the primary fuel used by households for cooking, space heating and water heating draws primarily on the 2011 Census (StatsSA, 2011), while electrification assumptions are according to the National Development Plan (National Planning Commission, 2012).</p>
+<p><strong>Households in all income groups use a variety of fuels to meet their energy service needs</strong> and, particularly in middle and low income households, typically use more than one fuel type to meet energy services (e.g. both biomass and electricity for cooking) – a principle known as <strong>fuel stacking</strong>.</p>
+<p><img alt="alt text" src="_images/image-4.png" /> <em>Figure 2: Final energy demand to provide energy services in low, middle and high income households in SATIM</em></p>
+<p><strong>Within SATIM, household energy service needs, such as lighting and cooking etc, are met by technologies such as LEDs or CFLs and electric or paraffin stoves. Technologies, and their assumed average efficiencies, are specific to the type of technology and fuel being used.</strong> For example: an electric geyser can be used to supply hot water at 75% efficiency, whereas wood used for water heating in low income households (open fire) has an efficiency of 11%. This allows us to capture the average energy efficiency of meeting energy service needs using different fuels and technologies as well as the impact that a shift in fuel or technology use will have on the demand for energy to supply energy services. Technology efficiencies can be specific to income groups, e.g. lower income households are more likely to have old and less efficient fridges. Efficiency levels also capture shifts between electrical appliances, for example the increased penetration of LEDs for lighting, or the uptake of combined-heat-and-power (CHP) and solar water heaters (SWH) for water heating.</p>
+<p><strong>The upward mobility of households from lower to middle and higher income groups, driven by growth in GDP, will cause an increase in electricity use in favour of other alternative fuels over time,</strong> as households increase their appliance ownership as their income grows. Increases in electricity use are however partially tempered by energy efficiency improvements in the sector, based on assumptions about efficacy of the Standards and Labelling programme and Minimum Energy Performance Standards (MEPS) for appliances (DMRE, 2022). Upward mobility of households is captured in the model by altering the share of households in each income group over time. The share of households in each income group is taken from SAGE.</p>
+<p><strong>However, under current projections not all households would be able to migrate out of the lower income group by 2050.</strong> Many of these households are currently in a state of energy poverty and may struggle to move away from the use of solid fuels without support.</p>
+</section>
+<section id="commercial-buildings">
+<h2>3.2 Commercial Buildings<a class="headerlink" href="#commercial-buildings" title="Link to this heading">#</a></h2>
+<p>The commercial buildings sector in SATIM includes wholesale, retail and motor trade services, warehouses and industrial spaces, office buildings, banking facilities, and other non-residential and government spaces including schools, hospitals, hotels, and recreational facilities. Public sector floor area, which primarily serves public services, includes public lighting and water services is also considered.</p>
+<p><strong>Commercial sector energy service demand is estimated based on the energy intensity of energy services required as a function of lettable floor area (PJ/m2)</strong> and is linked to growth in floor area and improvements in energy efficiency over time. Final energy demand is internally computed within SATIM, factoring in technology efficiency and penetration within the sector, as the model assumes that energy services in new buildings can be delivered more efficiently with newer technologies, while constraints on residual capacity and building design limit the adoption of newer technologies and other improvements in energy efficiency in older buildings.</p>
+<p><strong>Energy services are disaggregated into cooling, space heating, cooking, lighting, refrigeration, water heating, public lighting, public water supply, and other appliances.</strong> As with the residential sector, end-uses can be represented either by fuel or technology. Technology shares encompass the prevalence, activity levels, and efficiencies of different technology types supplying specific energy services. Figure 3 shows the final energy demand for each energy service represented in the model in 2017.</p>
+<p><img alt="alt text" src="_images/image-5.png" /><em>Figure 3: Energy end-use consumption specified by fuel and generic end-use for Commerce (SATIM)</em></p>
+<p><strong>In the long-term, commercial buildings in South Africa will likely undergo significant transformations driven by sustainability goals, equitable urban planning initiatives and technological advancements.</strong> Sustainable and energy-efficient designs may become more prevalent, incorporating passive architectural design elements that prioritise the use of ambient energy such as advanced insulation, high performance windows, airtightness, natural ventilation, and daylighting systems with heat recovery, as well as more thermally efficient building materials. Access to essential utilities like heating, cooling, and electricity will likely rely heavily on electrified, energy-efficient and sustainable solutions, reflecting enhanced environmental responsibility. In terms of specific systems, there will likely be a notable shift towards electric-based technologies for heating, cooking, water heating, and lighting, with an increasing reliance on renewable energy sources (Agbajor &amp; Mewomo, 2024).</p>
+<p><strong>Changing occupancy patterns,</strong> including the adoption of flexible work arrangements and telecommuting, would also influence the demand for heating and cooling systems during traditional office hours. Occupants’ behaviour, guided by heightened energy conservation awareness, will likely further encourage responsible heating and cooling system usage. This can be captured in the model by adjusting the useful energy demand of affected energy services.</p>
+<p><strong>Regulatory frameworks are expected to evolve,</strong> emphasising optimisation and the integration of smart grid-type devices, which may be overseen by electricity grid operators. These developments would play a pivotal role in managing energy variability, enhancing storage, and optimising building energy use while aligning with sustainability objectives. <strong>Moreover, inclusive urbanisation strategies</strong> will address spatial inequalities by encouraging mixed-use developments and fostering social cohesion in urban planning initiatives. Additionally, we foresee an increased adherence to green building codes such as SANS10400 XA2 (SANS, 2013), accompanied by the introduction of energy endorsement labels for energy-efficient appliances. Minimum Energy Performance Standards (MEPS) should also be rigorously implemented to further promote energy efficiency and sustainability across the sector. MEPS tightening is captured as an improvement in the efficiency of technologies delivering energy services whereas the SANS is captured as a reduction in energy service needs in the model.</p>
+</section>
+<section id="industry">
+<h2>3.3 Industry<a class="headerlink" href="#industry" title="Link to this heading">#</a></h2>
+<p>Industry modelling in SATIM is generally split into two methodologies; one to represent large facilities and energy intensive industries, and the second to represent the industries which are generally smaller, more numerous, and spread out across the country. The sub-sectors for these categories are shown in Table 2:</p>
+<p>Table 2: Industry subsectors as defined in SATIM</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methodology</p></th>
+<th class="head"><p>Industry Sub-Sector</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Methodology One:<br><br>large, energy intensive industries</p></td>
+<td><p>Iron and Steel</p></td>
+<td><p>All primary, and secondary producers of crude steel, coke production included here (which is sold to chrome industry)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ferro Alloys</p></td>
+<td><p>FerroChrome, and FerroManganese</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Aluminium</p></td>
+<td><p>One company and one facility in South Africa: South32’s Hillside smelter near Richard’s Bay.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pulp and paper</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Non-metallic minerals (NMM)</p></td>
+<td><p>Cement, bricks, lime, glass</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Platinum Group Metals (PGMs)</p></td>
+<td><p>Includes mining of the ores</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Methodology Two:<br><br>More numerous, spread out industries.</p></td>
+<td><p>Mining</p></td>
+<td><p>Includes coal mining, excludes: PGM ores.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chemicals</p></td>
+<td><p>This sector captures the energy use for chemicals, including petrochemicals, but <em>not</em> liquid fuels; the subsector is closely linked to, and dominated by, the operations of Sasol – <strong>see Appendix B for details on the chemicals sector</strong></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>PNFM: Other precious and non-ferrous metals</p></td>
+<td><p>Gold, copper, nickel, zinc, and others.</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Food and beverages</p></td>
+<td><p>Processing of agriculture products into food products, includes sugar industry</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>General other manufacturing not covered elsewhere</p></td>
+<td><p>Production of general other goods (textiles, clothing, pots and pans etc.)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methodology One</strong> sectors are represented in SATIM by the process technologies specific to those industries, e.g. Blast Furnaces, cement kilns, paper mills, etc., as these technologies are generally well classified by their fuel use, energy intensities and operations in literature and other public resources, and some data for the local industries in South Africa are published. These sectors have specific demand tonnages: e.g. tonnes of cement produced in South Africa. Energy use breakdown for these sectors is shown for the base year (2017) in Figure 4.</p>
+<p><img alt="alt text" src="_images/image-6.png" /><em>Figure 4: Base year end-use energy consumption by fuel and technology for methodology-one industry subsectors (SATIM)</em></p>
+<p><strong>Methodology Two</strong> sectors are generally classified by their energy end use requirements; process heating, pumping, machinery, lighting and others, based on available literature, and this is calibrated with South African national energy balance data. Examples are shown for mining and chemicals sectors in Figure 5.</p>
+<p><img alt="alt text" src="_images/image-7.png" /><em>Figure 5: Energy end-use consumption specified by fuel and generic end-use for Methodology Two sectors (SATIM)</em></p>
+<p><strong>The large energy intensive industries generally are dominated by production processes that are expensive to build and have a long economic life</strong> (sometimes 20 years or more). This aspect means these industries generally lock-in the energy usage characteristics going forward, and it also makes fuel (and technology) switching more challenging.</p>
+<p>The two main end-uses of energy in the industrial sector are <strong>process heat</strong> and <strong>machinery operation</strong>. The latter is almost exclusively powered by electricity, while the former is supplied by several fuel sources including coal, gas, electricity, and liquid fuels.</p>
+<p>In the future <strong>electricity</strong> could be used more for heating requirements than today, especially for low grade temperature requirements where heat pumps could be deployed to replace thermal fuels. But owing to the economic advantage of thermal fuels like coal, electricity will not easily or quickly replace these in much of low grade requirements and especially in medium to higher grade heat demands. <strong>Natural</strong> <strong>Gas</strong> could be used more extensively in industry, but this relies on gas infrastructure being developed in South Africa, and this would still need to compete against cheap coal available locally.</p>
+<p>Some sectors may see fuel and technology switching such as <strong>hydrogen-based Direct Reduction of Iron (DRI)</strong> for steel production, and hydrogen derived from electrolysis of water using electricity may provide other high temperature process demands. However, hydrogen based technologies are likely to be limited to very few industries like steel, and chemicals, and these switches would require very large investments, and a degree of risk.</p>
+<p>Owing to the rapid rise in electricity prices in the last 10 to 15 years in South Africa, industry has undertaken <strong>energy efficiency</strong> interventions to save costs. With loadshedding in recent years, and now a push for supplying their own power through IPP’s, and installed solar PV systems, energy efficiency would be a high priority, low hanging fruit, for economic reasons. This is likely to continue in the coming years, and should the national grid be transformed high levels of renewables, energy efficiency deployment would be crucial and potentially offer large returns to industries and help bolster the grid.</p>
+</section>
+<section id="transport">
+<h2>3.4 Transport<a class="headerlink" href="#transport" title="Link to this heading">#</a></h2>
+<p>The structure of the transport system in SATIM is shown at a high-level in Figure 6. The sector is disaggregated into passenger and freight transport, and further by mode – road or rail.</p>
+<p>Freight road transport is similarly disaggregated by vehicle class (LCVs and HCVs class 1 to 9) and fuel (diesel, petrol, electricity or hydrogen). Freight rail is currently modelled using a mixture of diesel and electricity. Aviation is considered separately, with no distinction made between passenger and freight.</p>
+<p><img alt="alt text" src="_images/image-8.png" /><em>Figure 6: Schematic of the transport sector as modelled in SATIM</em></p>
+<p><strong>Passenger road transport</strong> is disaggregated into private or public transport, by vehicle class therein (e.g. private sedan, minibus taxi, bus, etc.) and then by fuel. Passenger rail is assumed to be 100% electric. Passenger demand is measured using the ‘passenger-kilometre’ (pkm) metric, where 1 pkm is equivalent to 1 passenger travelling 1 kilometre. Passengers are classified by income level – high, medium and low – with assumptions for each group including:</p>
+<ul class="simple">
+<li><p>proportion of private vehicle ownership,</p></li>
+<li><p>number of private vehicles owned per person,</p></li>
+<li><p>average occupancy of private vehicles when driven,</p></li>
+<li><p>annual mileage of private vehicles</p></li>
+<li><p>annual time budget for travelling (in private and public modes), and</p></li>
+<li><p>average speed of private and public vehicles.</p></li>
+</ul>
+<p>All of these data are computed and projected, based on economic drivers of GDP and population growth, to arrive at future passenger transport demand (pkms) by type of vehicle (private sedan, public BRT, public rail etc.). SATIM then determines the ‘optimal’ fuel type for new vehicle purchases for each year modelled to meet the demand, and the overall country-wide vehicle stock is updated accordingly.</p>
+<p><strong>Freight transport is modelled similarly to passenger transport</strong>. Freight transport demand is measured using the ‘tonne-kilometre’ (tkm) metric, where 1 tkm equals 1 tonne transported 1 kilometre. Road freight demand is divided into different commercial vehicle class (LCVs and HCV 1, 2, 3, up to 9). All new rail freight is assumed to be electric. SATIM determines tkm demand based on tonnage by vehicle class and typical delivery distance, to arrive at tkm and veh-km projections. As with passenger transport, the optimal fuel type mix is determined to meet annual tkm demand for each year modelled.</p>
+<p>The key variables for transport modelling are <strong>projected costs of ‘new’ vehicle technologies</strong> – EVs and, potentially, hydrogen-cell fuelled vehicles – and <strong>fuel costs</strong>, particularly for ICE vehicles. For example, if we assume high petrol and diesel prices into the future, the switch to EVs is accelerated.</p>
+<p>Regardless, <strong>it is highly likely that by 2050 a large share of transport will be electrified</strong>, based on current industry trends, signals from international markets about phasing out of ICEs, as well as the need to decarbonise. There may be a role for hydrogen fuelled vehicles in 2050 as well, but this is much more uncertain given the current early stages of development for this technology.</p>
+<p><strong>The role of public transport</strong> is particularly important for considering future integrated energy and transport systems. In SATIM, public transport use is currently governed by assumptions on persons’ time budget for travel against time and cost for meeting their travel demand using public transport systems, with further assumptions about the scale-up of future electric rail. Depending on these assumptions, future public transport systems scale up or remain at current proportions relative to private transport. For example, if public transport systems are more integrated, e.g. by reducing waiting times or walking distances to buses, minibuses, this would lower the ‘cost’ (monetary and time) and make public transport more appealing to private consumers.</p>
+<p><strong>Further analysis can also be undertaken to understand other behavioural factors</strong>, besides time and cost, that influence the choices of commuters and companies, as these choices have a material impact upon vehicle stocks and transport infrastructure investments. In this respect there are a few concerns: How do individuals and households respond to price signals in terms of capital cost, and operating cost (such as fuel costs) and non-price signals (such as to behavioural nudges, or communication campaigns), as well as how to companies respond to the same. Further details of transport modelling SATIM is described in Ahjum et al. (2020).</p>
+</section>
+<section id="agriculture">
+<h2>3.5 Agriculture<a class="headerlink" href="#agriculture" title="Link to this heading">#</a></h2>
+<p>Agriculture is a relatively small demand sector in South Africa and is not modelled at a high level of detail. Agriculture is modelled as a single sector in SATIM. Energy services captured within agriculture are heating, processing, irrigation, traction and “other”. Processing and other are supplied by electricity only, traction is supplied by diesel but can shift to electricity beyond 2025. Heating is supplied primarily by paraffin with a small amount coming from coal and can shift to electricity, gas or HFO beyond 2025. Irrigation is supplied primarily by electricity with a small amount supplied by diesel and can shift to 100% electricity by 2030. Figure 7 shows final energy demand for energy services in the agricultural sector in 2017.</p>
+<p><img alt="alt text" src="_images/image-9.png" /><em>Figure 7: Energy end-use consumption specified by fuel and generic end-use for Agriculture (SATIM)</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02SATIMGE.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2 Long-term energy systems modelling – SATIMGE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04EnergySupply.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4 Energy supply</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residential-buildings">3.1 Residential buildings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commercial-buildings">3.2 Commercial Buildings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#industry">3.3 Industry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transport">3.4 Transport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agriculture">3.5 Agriculture</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

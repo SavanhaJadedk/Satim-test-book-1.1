@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to the read-the-docs for the SATIM-eSAGE linked modelling framework. &#8212; My sample book</title>
+    <title>1 Introduction &#8212; My sample book</title>
   
   
   
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '01Introduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2 Long-term energy systems modelling – SATIMGE" href="02SATIMGE.html" />
+    <link rel="prev" title="Acknowledgements" href="00Acknowledgements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -139,7 +139,7 @@
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -170,13 +170,25 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to the read-the-docs for the SATIM-eSAGE linked modelling framework.
                 </a>
             </li>
         </ul>
-        
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05Data_Inputs.html">5. Data Inputs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07Data%20tables.html">7. SATIM Energy Technology Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99refs.html">References</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Annex%201%20Techs.html">Annex 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annex%202%20Fuels.html">Annex 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -360,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to the read-the-docs for the SATIM-eSAGE linked modelling framework.</h1>
+    <h1>1 Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,14 +382,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">1.1 Project Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1.2 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-south-africa-times-model-satim">1.3 The South Africa Times Model (SATIM)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-energy-south-africa-general-equilibrium-model-esage">1.4 The Energy South Africa General Equilibrium model (eSAGE)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satimel-esage-link">1.5 SATIMel-eSAGE link</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-energy-planning-and-the-role-of-energy-systems-modelling">1.2 Integrated energy planning and the role of energy systems modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-and-limitations-of-this-report">1.3 Scope and limitations of this report</a></li>
 </ul>
             </nav>
         </div>
@@ -389,59 +396,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-the-read-the-docs-for-the-satim-esage-linked-modelling-framework">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Welcome to the read-the-docs for the <strong>SATIM-eSAGE</strong> linked modelling framework.</a><a class="headerlink" href="#welcome-to-the-read-the-docs-for-the-satim-esage-linked-modelling-framework" title="Link to this heading">#</a></h1>
-<nav class="contents" id="contents">
-<p class="topic-title">Contents</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>WWF South Africa (WWF) have embarked on a process to equip stakeholders to engage effectively in the process of integrated energy planning, following the enactment of Section 6 of the National Energy Act of 2008 thereby mandating the Department of Minerals and Energy Resources (DMRE) to develop and update the official Integrated Energy Plan (IEP) for South Africa. The Energy Systems Research Group (ESRG) has been appointed by WWF to provide technical analysis and an evidence base to support WWF’s process of engagement with stakeholders for the IEP.</p>
+<p>This methodological paper highlights the processes, assumptions and structures of the long-term energy systems modelling analysis that will be undertaken in this work to inform and develop the evidence base upon which stakeholders can engage with the IEP process.</p>
+<section id="background">
+<h2>1.1 Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p>Integrated energy planning is an analytical process through which interactions between production and use of energy, and the linkages between energy, macro-economic factors, and socio-economic objectives can be understood.</p>
+<p>In South Africa, the 1998 White Paper on Energy Policy identified integrated energy planning as a key analytical framework for undertaking energy policy analysis and formulation, in order “to facilitate the optimal consumption of energy resources to meet social needs” (Department of Minerals and Energy, 1998). South Africa’s first IEP was published by the Department of Minerals and Energy (DME) in 2003 and was intended to provide a framework within which energy policy and development decisions could be made through analysis of costs and social and environmental impacts of different energy scenarios (DME, 2003).</p>
+<p>The National Energy Act of 2008 established a legal basis for integrated energy planning in South Africa, with Section 6 of the Act mandating the Minister of Minerals and Energy (now Mineral Resources and Energy) to develop, review, and publish the IEP. The Act specifies objectives that the IEP must account for, including interlinkages with other sectoral plans and national policy objectives it must address, as well as guidance it must provide in terms of energy infrastructure investments and technology selection.</p>
+<p>On 28 April 2023 the President issued a proclamation notice stating that Section 6 of the Act would come into operation as of 1 April 2024 (Presidency, 2023) thereby directing the DMRE to initiate the process for development of South Africa’s official IEP.</p>
+</section>
+<section id="integrated-energy-planning-and-the-role-of-energy-systems-modelling">
+<h2>1.2 Integrated energy planning and the role of energy systems modelling<a class="headerlink" href="#integrated-energy-planning-and-the-role-of-energy-systems-modelling" title="Link to this heading">#</a></h2>
+<p>Integrated energy planning involves detailed and comprehensive analysis of the energy sector, interaction between energy demand and energy supply, and linkages with the rest of the economy, and is used to form the basis of policy formulation and evaluation, and strategy development and implementation, to manage the demand and supply of energy to achieve desirable objectives (Eberhard, 1992). Whereas energy subsectors, such as electricity supply, have been typically analysed in isolation from other subsectors – for example, the Integrated <em>Resource</em> Plan (IRP) for electricity (DMRE, 2019 &amp; 2024; Department of Energy (DoE), 2011) – an Integrated <em>Energy</em> Plan (IEP) considers how all components of the energy system interact with each other, how they respond to shifts in energy demand and energy efficiency, and how the energy sector affects and is affected by the rest of the economy, and by other socio-economic and environmental factors, objectives and limitations.</p>
+<p><strong>A comprehensive integrated energy plan must thus address how the energy sector and energy policy decisions interact with the economy, society, equity, and the environment</strong>. The National Energy Act of South Africa provides clear guidance for this, with Section 6(2) stating that:</p>
+<p>“<em>The Integrated Energy Plan must deal with issues relating to the</em> <strong><em>supply, transformation, transport, storage of and demand</em></strong> <em>for energy in a way that accounts for—</em></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#welcome-to-the-read-the-docs-for-the-satim-esage-linked-modelling-framework" id="id1">Welcome to the read-the-docs for the <strong>SATIM-eSAGE</strong> linked modelling framework.</a></p>
-<ul>
-<li><p><a class="reference internal" href="#introduction" id="id2">1. Introduction</a></p>
-<ul>
-<li><p><a class="reference internal" href="#project-overview" id="id3">1.1 Project Overview</a></p></li>
-<li><p><a class="reference internal" href="#motivation" id="id4">1.2 Motivation</a></p></li>
-<li><p><a class="reference internal" href="#the-south-africa-times-model-satim" id="id5">1.3 The South Africa Times Model (SATIM)</a></p></li>
-<li><p><a class="reference internal" href="#the-energy-south-africa-general-equilibrium-model-esage" id="id6">1.4 The Energy South Africa General Equilibrium model (eSAGE)</a></p></li>
-<li><p><a class="reference internal" href="#satimel-esage-link" id="id7">1.5 SATIMel-eSAGE link</a></p></li>
+<li><p><em>security of supply;</em></p></li>
+<li><p><em>economically available energy resources:</em></p></li>
+<li><p><em>affordability;</em></p></li>
+<li><p><em>universal accessibility and free basic electricity;</em></p></li>
+<li><p><em>social equity;</em></p></li>
+<li><p><em>employment;</em></p></li>
+<li><p><em>the environment;</em></p></li>
+<li><p><em>international commitments;</em></p></li>
+<li><p><em>consumer protection; and</em></p></li>
+<li><p><em>contribution of energy supply to socio-economic development.</em>”</p></li>
 </ul>
-</li>
+<p>The Energy Policy White Paper (DME, 1998) provides guidance on the roles and technical functions of integrated energy planning, of which the most important steps can be summarised as:</p>
+<ul class="simple">
+<li><p><strong>Interpreting the requirements of national social, economic, and environmental policies and objectives</strong> for the energy sector.</p></li>
+<li><p><strong>Analysing current and future energy demand needs</strong> in the context of technological evolution, industrialisation, and socio-economic growth and development objectives – including, for example, minimum universal energy access levels.</p></li>
+<li><p><strong>Analysing potential energy supply systems and technologies</strong>, as well as demand-side management measures (including energy efficiency), to meet the current and future energy demand, further contextualised by additional objectives or constraints – for example, achieving a net zero CO<sub>2</sub> emissions energy system by 2050.</p></li>
+<li><p><strong>Analysing linkages between the energy sector and the macro-economy</strong> and <em>vice versa.</em></p></li>
+<li><p><strong>Identifying where policy intervention is needed</strong> to direct the development of the energy sector toward the desired social, economic, and environmental objectives.</p></li>
 </ul>
-</li>
+<p>These questions pertain to the <strong>long-term</strong> future of the energy sector and its linkages to long-term social objectives, and integrated energy planning is a framework specifically for this long-term forward-looking context. Section 6(5) of the Act reflects this with the specification that the planning horizon for the IEP should be a minimum of 20 years.</p>
+<p>In this way, integrated energy planning builds understanding of long-term energy futures through <strong>scenario analysis</strong>. Scenarios are designed to analyse the future energy sector on the basis of <strong>quantitative indicators</strong> that characterise long-term energy and energy-interlinked objectives and limitations.</p>
+<p>These scenarios are then modelled in order to characterise potential <strong>pathways</strong> that might be taken to reach these long-term outcomes, accounting for possible variations, interventions (including <strong>policies and measures</strong>) and constraints along the way. In this way, <strong>long-term energy systems modelling is fundamental to integrated energy planning</strong>.</p>
+<p>Different energy model frameworks can be applied for long-term energy analysis. For example, simulation models, such as <em>LEAP</em>, could be used to compare and contrast the long-term costs and emissions of various energy technology build pathways over the modelling horizon (e.g. Stone &amp; Wiswedel, 2015). Another example is the use of the PLEXOS modelling software to analyse long-term electricity generation build-plans to respond to simulated electricity consumption and demand profile projections, as is performed by the DMRE and Eskom in the development of the Integrated Resource Plan (DMRE, 2024).</p>
+<p>However <strong>effective <em>integrated</em> energy planning requires a model framework that analyses dynamic variations in both energy supply and energy demand</strong>, whereby the model can shift energy demand according to shifts in demand drivers (e.g. increased economic activity, increased process efficiency, etc.) and then shift energy supply to meet the changed demand. This is necessary because effective integrated energy planning is <strong>demand-led</strong> – i.e. it follows, in simple terms, the principle of first identifying the energy demand, and then identifying the energy supply mix to meet that demand.</p>
+<p><strong>ESRG’s SATIMGE modelling framework</strong> is uniquely able to perform this analysis for the South African context. It encompasses the South African TIMES Model (<strong>SATIM</strong>), which models South Africa’s entire energy system, from energy end-uses downstream up through primary energy extraction upstream, integrated with an economic CGE model for South Africa’s social accounting matrix (<strong>SAGE</strong>), which can analyse how socio-economic indicators at macro level respond to investments and shifts in the energy sector.</p>
+<p>SATIMGE is thus ideally positioned to perform analysis to provide evidence-based inputs for engagement with integrated energy planning in South Africa.</p>
+</section>
+<section id="scope-and-limitations-of-this-report">
+<h2>1.3 Scope and limitations of this report<a class="headerlink" href="#scope-and-limitations-of-this-report" title="Link to this heading">#</a></h2>
+<p>This report provides an overview of the methodological approach that will be undertaken by the ESRG to support WWF in the development of an evidence-base to inform stakeholders in their prospective engagement with the IEP. More specifically, this report highlights how the SATIMGE modelling framework will be applied in the analysis of scenarios for the future energy sector and its interlinkages with desired long-term social, economic, and environmental objectives. To that end, the report proceeds as follows:</p>
+<ul class="simple">
+<li><p><strong>SATIMGE is introduced</strong> with an overview of its components and how they interlink.</p></li>
+<li><p><strong>South African energy demand sectors are described</strong>, in terms of how they are represented and modelled in SATIM both in terms of their current energy needs and consumption as well as how these may evolve in the long-term.</p></li>
+<li><p><strong>Energy supply and demand-side management options are described</strong>, also in terms of how they are currently set up in SATIM, and how the model determines long-term energy investment choices to meet future demand.</p></li>
+<li><p><strong>The method for indicators and scenario analysis is introduced</strong>, including an overview of a framework for collaborative scenario development as well as an initial description of indicators.</p></li>
+<li><p><strong>A list of key assumptions is provided</strong> which form the basis of drivers for the modelling analysis.</p></li>
 </ul>
-</nav>
-<section id="introduction">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<section id="project-overview">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">1.1 Project Overview</a><a class="headerlink" href="#project-overview" title="Link to this heading">#</a></h3>
-<p>This documentation serves as a comprehensive guide to <strong>SATIM-eSAGE</strong>, a  linked modeling framework combines the SATIM (South African TIMES Model) and eSAGE (Energy South African General Equilibrium Model) to analyze the socioeconomic impacts of energy and climate policies in South Africa.The linked framework involves an iterative process of exchanging information between SATIM and eSAGE to produce comprehensive and consistent results.</p>
-<p>Its purpose is to enhance transparency and accessibility to the model, widely utilized for policymaking and critical analysis. By doing so, it seeks to contribute more broadly to the advancement and utilization of energy systems models in developing countries.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note! Cool!</p>
-</div>
-</section>
-<section id="motivation">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.2 Motivation</a><a class="headerlink" href="#motivation" title="Link to this heading">#</a></h3>
-<p>The motivation behind the SATIM-eSAGE linked modeling framework lies in its ability to provide comprehensive and consistent results, thereby enhancing the analysis of energy and climate policies in South Africa. By combining SATIM and eSAGE, the framework enables a more nuanced examination of policies, considering their socioeconomic impacts. It addresses the need for a sophisticated tool to explore and assess different policy scenarios, shedding light on the trade-offs between mitigation and development objectives in the South African context.</p>
-</section>
-<section id="the-south-africa-times-model-satim">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">1.3 The South Africa Times Model (SATIM)</a><a class="headerlink" href="#the-south-africa-times-model-satim" title="Link to this heading">#</a></h3>
-<p>The South African Times Model (SATIM) is a a single-region, multi-sector, and multi-time period bottom-up TIMES model that represents the South African Energy system. It provides detailed representations of all economic sectors, each of which is adapted to best represent energy demand or supply within that sector. The South African Times Model (SATIM) evolved from a traditional TIMES (The Integrated MARKAL-EFOM System) model, adapting the framework to the South African context. It included unique characteristics such as residential energy access inequality, the use of multiple fuels within households, complex coal supply networks, and representation of Gas-to-Liquid and Coal-to-Liquid plants. This model serves as the foundation for computing the least-cost energy technology mix and investment plans, contributing valuable information to the linked modeling framework.</p>
-</section>
-<section id="the-energy-south-africa-general-equilibrium-model-esage">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">1.4 The Energy South Africa General Equilibrium model (eSAGE)</a><a class="headerlink" href="#the-energy-south-africa-general-equilibrium-model-esage" title="Link to this heading">#</a></h3>
-<p>eSAGE operates as a dynamic, recursive, economy-wide, multi-sector computable general equilibrium model. This model simulates the functioning of the South African economy, providing insights into the broader economic implications of energy and climate policies.The integration of both SATIM and eSAGE ensures a holistic analysis, capturing the intricate interplay between the energy sector and the broader economic landscape.</p>
-</section>
-<section id="satimel-esage-link">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">1.5 SATIMel-eSAGE link</a><a class="headerlink" href="#satimel-esage-link" title="Link to this heading">#</a></h3>
-<p>The linkages from SATIM to eSAGE involve alternate runs of the models, facilitating the exchange of information via data links. SATIM computes the least-cost energy technology mix and investment plan, transmitted to eSAGE for incorporation into its simulations. Conversely, economic indicators generated in eSAGE are fed back to SATIM for further optimization, resulting in a continuous and iterative process that aligns energy utilization and economic impacts in both models.This linked modeling framework offers a powerful capability to analyze diverse scenarios and policy options, providing crucial insights into the complex trade-offs between mitigation and development objectives in South Africa.</p>
-<p><strong>For further info, check out the Model Structure of <a class="reference internal" href="#/docs/source/02SATIM%20Model%20Structure.md"><span class="xref myst">SATIM</span></a>, <a class="reference internal" href="#/docs/source/03eSAGE%20Model%20Structure.md"><span class="xref myst">eSAGE</span></a>, or the <a class="reference internal" href="#/docs/source/04Model%20Linkage.md"><span class="xref myst">Model Linkage</span></a>.</strong>
-<strong>Read information on Data collection in <a class="reference internal" href="#/docs/source/05Data%20Inputs.ipynb"><span class="xref myst">Data Inputs</span></a>.</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note! Cool!</p>
-</div>
-</section>
+<p>The report concludes with a summary of the methodological approach for the project, including highlighting the key indicators for the modelling work, and identifies key next steps to be undertaken in the project.</p>
+<p>It should be noted that this report does not cover the following:</p>
+<ul class="simple">
+<li><p><strong>Policy analysis</strong>: whilst policy evaluation and gap analysis form a key component of integrated energy planning and will feature as part of the ongoing work of the project, this will not be covered in detail in this methodological report, as the focus here is primarily on the modelling methodology.</p></li>
+<li><p><strong>Developed scenarios and detailed indicators</strong>: this report outlines the framework, approach, and key indicators for scenario analysis; however, the actual development of scenarios is a collaborative process, involving all the relevant stakeholders, which will continue to unfold and form the basis of the next phase of work in this project. <strong>This report also does not document detailed indicators or data describing these, but these will be discussed in subsequent workshops and form the subject of a further report to inform WWF’s IEP engagement process.</strong></p></li>
+<li><p><strong>Detailed modelling data</strong>: this report covers the methodology for the modelling, including detail on how energy demand and supply are characterised and calculated in each sector, as well as key driving assumptions, but does not provide a comprehensive reference of all the input data, assumptions, and technical structure of the underlying modelling mechanics. Recognising the importance of transparency, the ESRG is undertaking a separate and comprehensive process of model documentation to ensure that this information is publicly available and will be available to stakeholders for scrutiny as this work develops further.</p></li>
+</ul>
 </section>
 </section>
 
@@ -475,6 +490,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="00Acknowledgements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Acknowledgements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02SATIMGE.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2 Long-term energy systems modelling – SATIMGE</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -491,14 +524,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">1.1 Project Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">1.2 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-south-africa-times-model-satim">1.3 The South Africa Times Model (SATIM)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-energy-south-africa-general-equilibrium-model-esage">1.4 The Energy South Africa General Equilibrium model (eSAGE)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satimel-esage-link">1.5 SATIMel-eSAGE link</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-energy-planning-and-the-role-of-energy-systems-modelling">1.2 Integrated energy planning and the role of energy systems modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-and-limitations-of-this-report">1.3 Scope and limitations of this report</a></li>
 </ul>
   </nav></div>
 

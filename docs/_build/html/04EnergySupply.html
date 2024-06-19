@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4 Energy supply &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04EnergySupply';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5 Cross-cutting energy industries and technologies" href="05Crosscuttingindustries.html" />
+    <link rel="prev" title="3 Energy demand" href="03Energydemand.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the read-the-docs for the SATIM-eSAGE linked modelling framework.
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05Data_Inputs.html">5. Data Inputs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="07Data%20tables.html">7. SATIM Energy Technology Input Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99refs.html">References</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Annex%201%20Techs.html">Annex 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Annex%202%20Fuels.html">Annex 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04EnergySupply.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04EnergySupply.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4 Energy supply</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-energy">4.1 Primary energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coal">4.1.1 Coal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-energy-incl-bioenergy">4.1.2 Renewable energy (incl. bioenergy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-gas">4.1.3 Natural gas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">4.1.4 Imports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-carriers">4.2 Energy carriers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity">4.2.1 Electricity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-fuels">4.2.2 Liquid fuels</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="energy-supply">
+<h1>4 Energy supply<a class="headerlink" href="#energy-supply" title="Link to this heading">#</a></h1>
+<p>Energy supply in SATIM is modelled from primary energy sourcing and extraction (e.g. coal mining) through conversion technologies (e.g. power plants and liquid fuels refineries) into secondary energy carriers (e.g. electricity, petroleum, diesel, etc.) that are then transported (or transmitted) and distributed to energy demand sectors and down to energy end-uses (as described in the previous section).</p>
+<p>This section focuses on the energy supply sectors of SATIM, including primary energy extraction and import as well as secondary energy conversion in the electricity and liquid fuels sectors.</p>
+<section id="primary-energy">
+<h2>4.1 Primary energy<a class="headerlink" href="#primary-energy" title="Link to this heading">#</a></h2>
+<p>Primary energy carriers used in South Africa consist predominantly of coal, biomass and imported crude oil and refined product, with small contributions of natural gas and nuclear fuel and a small but growing share of wind and solar energy (Figure 8).</p>
+<p><img alt="alt text" src="_images/image-11.png" /><em>Figure 8: Estimated proportions of primary energy supply for South Africa in 2019</em></p>
+<section id="coal">
+<h3>4.1.1 Coal<a class="headerlink" href="#coal" title="Link to this heading">#</a></h3>
+<p>The majority of South Africa’s primary energy is sourced from coal mined in South Africa, which serves three major uses:</p>
+<ul class="simple">
+<li><p>Supply to the existing coal power plant fleet to produce electricity</p></li>
+<li><p>Supply to Sasol’s coal-to-liquids value chain for conversion into liquid fuels as well as to fuel the production of petrochemicals and other chemical products (see Appendix B)</p></li>
+<li><p>Exports to overseas markets, including Europe and Asia (mainly India)</p></li>
+</ul>
+<p>Coal supply to power stations is modelled in SATIM based on data disaggregated at a level that shows:</p>
+<ul class="simple">
+<li><p>Mines, or group of mines, supplying individual power stations, with estimates of the grade of coal (i.e., calorific value or net heating content of each tonne of coal supplied)</p></li>
+<li><p>Tonnage of coal supplied to power stations based on their demand (i.e. how much electricity they are producing, with factors for conversion efficiency and auxiliary power losses)</p></li>
+<li><p>Costs drawn from actual data on contracts that exist between suppliers and Eskom, factoring type and length of contracts as well as transport and other costs</p></li>
+</ul>
+<p>This data provides a precise estimate of coal consumption and costs for the power sector. However, additional sundry factors such as inconsistencies with the grade of coal supplied are not captured. Broader assumptions are made regarding the costs, heating grades and quantities of coal supplied to Sasol’s coal-to-liquids (CTL) facilities.</p>
+<p>Coal export quantities are modelled exogenously – i.e., fixed export levels are assumed and applied into the modelling analysis, without optimisation – with the future of coal exports dependent on assumptions about commodity prices and future demand for coal, particularly in a world that is aiming to reduce carbon emissions. Currently the existing logistical challenges with coal exports through Richards Bay Coal Terminal are not fully accounted in the CGE model.</p>
+</section>
+<section id="renewable-energy-incl-bioenergy">
+<h3>4.1.2 Renewable energy (incl. bioenergy)<a class="headerlink" href="#renewable-energy-incl-bioenergy" title="Link to this heading">#</a></h3>
+<p>Solar and wind energy are used in SATIM exclusively for power generation. The availability of wind and solar plants follows seasonal and diurnal patterns. This is captured with more or less detail depending on the temporal resolution specified.</p>
+<p>Bioenergy is distinguished in SATIM into three different types, with use predominantly in industry and the residential sector:</p>
+<ul class="simple">
+<li><p>Biochar</p></li>
+<li><p>Biomass</p></li>
+<li><p>Biowood</p></li>
+</ul>
+<p>Biofuels (liquid biomass), such as bioethanol and biodiesel, are not currently included in SATIM model analysis, however the capability to analyse these fuels is built within the SATIM architecture.</p>
+</section>
+<section id="natural-gas">
+<h3>4.1.3 Natural gas<a class="headerlink" href="#natural-gas" title="Link to this heading">#</a></h3>
+<p>The natural gas sector in SATIM comprises of indigenous supply/ extraction, imports, transformation, transmission and distribution, and final consumption demand. Here, ‘gas’ is both methane rich gas, produced by Sasol, and natural gas (not LPG). Natural gas is supplied via pipeline or LNG terminal to the gas network (transmission and distribution) for distribution. Gas sources in the model currently include:</p>
+<ul class="simple">
+<li><p>Southern Mozambique via existing pipeline</p></li>
+<li><p>Coastal gas supplied by LNG</p></li>
+<li><p>Indigenous Gas (Ibhubezi)</p></li>
+</ul>
+<p>Natural gas is also supplied to gas power plants and other sectors, namely refineries/chemicals, industry, commercial and residential.</p>
+<p>Gas is used in these sectors for energy demand or transformation. Where natural gas is a commodity input as a feedstock, it is classified under ‘transformation’. For example, natural gas is ‘transformed’ in gas power plants to the commodity output electricity. And where gas is utilised for energy or heating it is classified under ‘demand’. For example, gas boilers in the residential and commercial sectors are supplied gas from the gas network for end use heating/energy requirements.</p>
+<p>Sasol utilises natural gas as a feedstock. And in its production of synthetic fuel and chemicals it produces methane rich gas which is supplied to industry via gas infrastructure/network.</p>
+<p>Gas could be used more extensively in the different sectors (for example as a substitute for coal in industry for process-heating); however, this depends on gas infrastructure being further developed in South Africa.</p>
+</section>
+<section id="imports">
+<h3>4.1.4 Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h3>
+<p>South Africa imports the majority of its liquid fuels for domestic consumption, both in the form of crude oil for domestic refineries, as well as (increasingly) in the form of refined product such as petrol and diesel. The only domestic primary energy source of liquid fuels is from coal, via Sasol’s CTL facilities.</p>
+<p>Liquid fuel imports are sensitive to the availability and operation of domestic crude oil refinery capacity, which is expected to be phased out completely by 2034 (currently Astron’s Cape Town refinery is the only coastal crude oil refinery in operation in the country), as well as the availability of CTL capacity and production. The balance of refined product demand that cannot be met from crude oil, CTL or GTL (gas-to-liquids) refineries has to be imported.</p>
+<p>The long-term future of liquid fuels imports is highly sensitive to assumptions about the future transport sector (including the extent to which electric and hydrogen vehicles replace conventional ICEs), which in turn are sensitive to future projections about international fuel prices (see the section on Assumptions below).</p>
+</section>
+</section>
+<section id="energy-carriers">
+<h2>4.2 Energy carriers<a class="headerlink" href="#energy-carriers" title="Link to this heading">#</a></h2>
+<p>Primary energy inputs as described above are converted into secondary and final energy (‘usable’ energy), predominantly in of two forms: electricity and liquid fuels.</p>
+<section id="electricity">
+<h3>4.2.1 Electricity<a class="headerlink" href="#electricity" title="Link to this heading">#</a></h3>
+<p>The power sector is structured in SATIM in three components: Generation, Transmission and Distribution, as illustrated in Figure 9. SATIM is currently configured as a single node model (as per IRP 2023).</p>
+<p><img alt="alt text" src="_images/image-12.png" /><em>Figure 9: Simplified schematic of the power sector as modelled in SATIM</em></p>
+<p><strong>Generation ‘technologies’</strong> in SATIM are modelled in two ways:</p>
+<ul class="simple">
+<li><p>Existing technologies: This comprises all generation plant (&gt;1 MW) operational as of 2012, including the coal PF power fleet (excluding Medupi and Kusile), Koeberg nuclear power station, open-cycle gas turbines (running off diesel), pumped storage facilities, and the small contributions from industrial embedded coal generation as well as hydro. Each large power plant is modelled separately with its own availability and retirement profile. Cahora Bassa is included as existing import.</p></li>
+<li><p>‘New’ technologies: This comprises actual build since 2012 – i.e. Medupi, Kusile, additional OCGT and pumped storage capacity, and initial rollout of utility renewable IPPs – as well as new-build technology options for future generation development. The latter comprises general technology data and applies to both grid and on-site technology options.</p></li>
+</ul>
+<p>Generation technologies are characterised and governed by a range of key data, including:</p>
+<ul class="simple">
+<li><p><strong>Conversion efficiency</strong> (i.e., the amount of energy a power plant can produce relative to primary energy input, e.g. typically around 35% for coal power stations)</p></li>
+<li><p><strong>Fixed costs</strong>, including capital costs (‘CAPEX’, specified as an ‘overnight’ cost in ZAR per kW capacity) and fixed operational &amp; maintenance (<strong>O&amp;M</strong>) costs.</p></li>
+<li><p><strong>Variable costs</strong>, including fuel costs (which vary by plant, based e.g. on specific coal contract data for Eskom’s coal fleet) and variable O&amp;M costs.</p></li>
+<li><p><strong>Lead time</strong> for plant construction (i.e. estimate number of years for construction up to the point of commercial operation). This is used by the model to calculate the interest during construction (assuming the global discount rate).</p></li>
+<li><p><strong>Economic life</strong> – number of years for which the plant can operate.</p></li>
+<li><p><strong>Availability</strong> – i.e. proportion of the year for which the plant is available for generation (i.e. not shut down for maintenance or forced outages). For RE plants the availability follows seasonal and diurnal patterns. This is captured with more or less detail depending on the temporal resolution specified. Availability of RE plants for new plants built between 2025 and 2032 is set lower than what could be achieved, to capture the current bottlenecks in the transmission infrastructure.</p></li>
+<li><p><strong>Emissions factors</strong> by emission species, including greenhouse gases (CO<sub>2</sub>, CH<sub>4</sub>, etc.) and air pollutants (SOx, NOx, and particulate matter).</p></li>
+<li><p><strong>First Year and Maximum Build Rate –</strong> “First Year” takes account of lead times to determine when the earliest year a particular option can become available. Maximum build rate is specified using a growth limit, which is a scenario parameter.</p></li>
+</ul>
+<p>New build options (beyond committed builds) include conventional nuclear, wind, solar PV (grid and rooftop), solar thermal plants, coal, diesel and gas, hydro, imports (including INGA and other potential imports from the Southern African Power Pool), pumped storage and battery technologies.</p>
+<p>A <strong>reserve margin</strong> on centrally produced electricity is specified exogenously as a constraint, as follows:</p>
+<p>Where CC<sub>i</sub> = Capacity Credit of grid-based electricity generation technology <em>i</em> and RM is the exogenously specified reserve Margin. In SATIM solar PV, solar thermal plants without storage and wind are by default conservatively assumed to be unable to contribute to the reserve margin (i.e. CC = 0).</p>
+<p>For utility-scale grid connected generation, since the country is modelled as a single node, <strong>transmission is modelled as a single technology</strong> linking centralised/high voltage electricity (ELCC) to medium voltage levels (ELC). The <strong>medium voltage electricity is distributed</strong> to each sector using a different technology to capture the different losses incurred in the different sectors. Distributed generation is handled separately and is a relatively new feature that has been added to SATIM to capture the emerging off-grid market – see Section 5.2 below.</p>
+</section>
+<section id="liquid-fuels">
+<h3>4.2.2 Liquid fuels<a class="headerlink" href="#liquid-fuels" title="Link to this heading">#</a></h3>
+<p>The liquid fuels/refineries sector comprises of crude refineries, Sasol CTL, PetroSA GTL (gas-to-liquids), imports and exports. The refineries sector is represented in SATIM by process technologies specific to each refinery.</p>
+<p>Fuel from crude oil and coal is modelled with commodity inputs, outputs, conversion data, and cost data for the different refineries in operation. Refineries (i.e. ENREF, SAPREF and PetroSA GTL) which have recently closed, are ‘switched off’ in the model. Furthermore, new inland and coastal plants, each with associated inputs and costs, can be selected by the model based on overall SATIMGE computation demands and constraints. Supply sector commodities are split into coastal and inland.</p>
+<p>Green jet fuel is a recent addition to the refineries sector.</p>
+<p>Table 3: Fuels from Refineries, GTL and CTL</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Crude Refineries and GTL</p></th>
+<th class="head"><p>CTL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AvGas</p></td>
+<td><p>Avgas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Diesel</p></td>
+<td><p>Diesel</p></td>
+</tr>
+<tr class="row-even"><td><p>HFO</p></td>
+<td><p>Methane Rich Gas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kerosene/jet fuel/paraffin</p></td>
+<td><p>Kerosene/Jet Fuel/paraffin</p></td>
+</tr>
+<tr class="row-even"><td><p>LPG</p></td>
+<td><p>LPG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gasoline</p></td>
+<td><p>Gasoline/Petrol</p></td>
+</tr>
+<tr class="row-even"><td><p>Other non-energy</p></td>
+<td><p>Non energy (alcohols)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Demand vs supply</strong></p>
+<p>Liquid fuel is imported to balance and meet national liquid fuel requirements above what can be supplied by local refineries. Liquid fuel demand is also met by increased imports when refineries are shut down/ decommissioned in SATIM. Liquid fuels traded include Aviation gasoline (Avgas), diesel and petrol (gasoline).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03Energydemand.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3 Energy demand</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05Crosscuttingindustries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5 Cross-cutting energy industries and technologies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-energy">4.1 Primary energy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coal">4.1.1 Coal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-energy-incl-bioenergy">4.1.2 Renewable energy (incl. bioenergy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-gas">4.1.3 Natural gas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">4.1.4 Imports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-carriers">4.2 Energy carriers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity">4.2.1 Electricity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquid-fuels">4.2.2 Liquid fuels</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
