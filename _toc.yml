@@ -1,0 +1,20 @@
+# Table of contents
+format: jb-book
+root: docs/intro
+chapters:
+  - file: docs/00Abreviations
+  - file: docs/02SATIM Model Structure
+  - file: docs/03eSAGE Model Structure
+  - file: docs/04Model Linkage
+  - file: docs/05Data_Inputs
+  - file: docs/06Scenarios
+  - file: docs/07Data tables
+  - file: docs/08Residential
+  - file: docs/99refs
+  - file: docs/9999Acknowledgements
+  - file: docs/Annex 1 Techs
+  - file: docs/Annex 2 Fuels
+  - file: docs/markdown
+  - file: docs/notebooks
+  - file: docs/markdown-notebooks
+
