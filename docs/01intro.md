@@ -1,4 +1,4 @@
-# Welcome to the read-the-docs for the **SATIM-eSAGE** linked modelling framework.
+# 1. Welcome to the read-the-docs for the **SATIM-eSAGE** linked modelling framework.
 
 ```{contents}
 ```
@@ -9,9 +9,6 @@ This documentation serves as a comprehensive guide to **SATIM-eSAGE**, a  linked
 
 Its purpose is to enhance transparency and accessibility to the model, widely utilized for policymaking and critical analysis. By doing so, it seeks to contribute more broadly to the advancement and utilization of energy systems models in developing countries.
 
-:::{note}
-Here is a note! Cool!
-:::
 
 
  ### 1.2 Motivation
@@ -39,7 +36,7 @@ The linkages from SATIM to eSAGE involve alternate runs of the models, facilitat
 
 
 :::{note}
-Here is a note! Cool!
+Technical note: Intro requires a different structure so it appears in the TOC.
 :::
 
 

@@ -1,22 +1,18 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: SATIMGE Documentation
+title: My sample book
 author: The Jupyter Book Community
 logo: logo.png
 html:
-  theme: pydata_sphinx_theme
+  theme: sphinx_rtd_theme
   theme_options:
-    navigation_with_keys: false
     logo_only: True        # If you want the logo to appear without the title next to it
     collapse_navigation: False  # Keeps the side navigation expanded
+    style_nav_header_background: "#2980B9"  # Customize the top navigation bar color (OSeMOSYS uses a blueish tone)
     display_version: False  # Disable version number display in the sidebar
     prev_next_buttons_location: 'bottom'  # Navigation buttons at the bottom only
-
-# Add extensions and configurations
-extensions:
-  - sphinx_rtd_theme
-
+  
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -25,19 +21,20 @@ execute:
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
-    targetname: SatimTestBook.tex
+    targetname: book.tex
 
-# Add a bibtex file for citations
+# Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
 
-# Repository information
+# Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
   path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
   use_repository_button: true
