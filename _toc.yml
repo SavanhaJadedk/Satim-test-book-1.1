@@ -11,6 +11,8 @@ chapters:
   - file: docs/08Residential
   - file: docs/Annex 1 Techs
   - file: docs/Annex 2 Fuels
+  - file: docs/10VedaOnline  
+  - file: docs/11VORes  
   - file: docs/99refs
   - file: docs/9999Acknowledgements
   - file: docs/00Abreviations
